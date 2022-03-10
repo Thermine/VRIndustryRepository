@@ -1,0 +1,377 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.13f1 (71691879b7f5) revision 7432472'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19043.1586; Version 2009; 64bit' Language: 'ru' Physical Memory: 32673 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.13f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/UnityProjects/VRIndustryRepository/VRIndustryProject
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+57748
+Successfully changed project path to: C:/UnityProjects/VRIndustryRepository/VRIndustryProject
+C:/UnityProjects/VRIndustryRepository/VRIndustryProject
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 100.28 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.76 ms.
+Initialize engine version: 2020.3.13f1 (71691879b7f5)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/UnityProjects/VRIndustryRepository/VRIndustryProject/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3070 (ID=0x2484)
+    Vendor:   
+    VRAM:     8043 MB
+    Driver:   27.21.14.6140
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56252
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001758 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 89.93 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.10 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.977 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.006336 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 91.47 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.08 ms.
+[XR] OculusXRPlugin: registering subsystems
+[XR] Unable to register display lifecyle provider: [1]
+[XR] Oculus Input lifecycle provider registered.
+[XR] Unable to register input lifecyle provider: [1]
+[XR] OVRP version 1.69.0
+Mono: successfully reloaded assembly
+- Completed reload, in  1.219 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.99 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.06 ms.
+Unloading 4114 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 192.3 MB.
+System memory in use after: 190.0 MB.
+
+Unloading 79 unused Assets to reduce memory usage. Loaded Objects now: 4500.
+Total: 3.954700 ms (FindLiveObjects: 0.485900 ms CreateObjectMapping: 0.207700 ms MarkObjects: 2.200200 ms  DeleteObjects: 1.059600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/HurricaneVR/TechDemo/Textures/interior_metallic_smoothness.png
+  artifactKey: Guid(8a5272a6fa6a58b43b018a233d180e3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/interior_metallic_smoothness.png using Guid(8a5272a6fa6a58b43b018a233d180e3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '458ab3f599862bc3eaac69eef37bcecd') in 0.090223 seconds 
+  Import took 0.095851 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000261 seconds.
+  path: Assets/HurricaneVR/TechDemo/Textures/hand_albedo.png
+  artifactKey: Guid(2db6c65438014734cb1b79dd893d9d2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/hand_albedo.png using Guid(2db6c65438014734cb1b79dd893d9d2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '669515548bf8f64cf9c14f2cd6adeed7') in 0.012619 seconds 
+  Import took 0.017968 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000241 seconds.
+  path: Assets/TransformShader/Example/SceneAssets/Materials/Cut Guides/Textures/Dissolve_01_00.png
+  artifactKey: Guid(ecbe16c28dea6e2468bb89bb9d6a96a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TransformShader/Example/SceneAssets/Materials/Cut Guides/Textures/Dissolve_01_00.png using Guid(ecbe16c28dea6e2468bb89bb9d6a96a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e393a524a5ddc5dcd199e05e0d93759') in 0.013034 seconds 
+  Import took 0.018285 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000530 seconds.
+  path: Assets/HurricaneVR/TechDemo/Textures/props_albedo.jpg
+  artifactKey: Guid(5246a2b0eb79c0a4696b2f1fe6628188) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/props_albedo.jpg using Guid(5246a2b0eb79c0a4696b2f1fe6628188) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b4790032f2e79cb0d48e712160f6b67') in 0.011143 seconds 
+  Import took 0.016295 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/TransformShader/Example/SceneAssets/Materials/Cut Guides/Textures/Dissolve_01_02.png
+  artifactKey: Guid(556a7c1f70dd7cf4f8ab33c22602c9b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TransformShader/Example/SceneAssets/Materials/Cut Guides/Textures/Dissolve_01_02.png using Guid(556a7c1f70dd7cf4f8ab33c22602c9b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f278db2ad4ac7c296a8856292b1053b') in 0.014440 seconds 
+  Import took 0.019695 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/TransformShader/Example/SceneAssets/Materials/Cut Guides/Textures/Dissolve_01_06.png
+  artifactKey: Guid(50d488d139e09a94a9f8d894013f02d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TransformShader/Example/SceneAssets/Materials/Cut Guides/Textures/Dissolve_01_06.png using Guid(50d488d139e09a94a9f8d894013f02d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '453a7d82fe7a655fbf5960e25a1e45bf') in 0.013077 seconds 
+  Import took 0.018143 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000234 seconds.
+  path: Assets/HurricaneVR/TechDemo/Textures/pistol_Metallic.png
+  artifactKey: Guid(7f59f2dfdd918514fa8f0c5e93e7ba2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/pistol_Metallic.png using Guid(7f59f2dfdd918514fa8f0c5e93e7ba2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd97e1db25a38c24d565ef10e9f4abfde') in 0.010748 seconds 
+  Import took 0.015801 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000237 seconds.
+  path: Assets/HurricaneVR/TechDemo/Textures/hands_metallic_smoothness.png
+  artifactKey: Guid(2ce20d797cc11e945ac658d3c7001404) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/hands_metallic_smoothness.png using Guid(2ce20d797cc11e945ac658d3c7001404) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '19123d46d4b32324beb0c4440049b6cb') in 0.010246 seconds 
+  Import took 0.015385 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000232 seconds.
+  path: Assets/TransformShader/Example/SceneAssets/Materials/Cut Guides/Textures/Dissolve_01_05.png
+  artifactKey: Guid(1ee80c58231121540976c545b5ec325d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TransformShader/Example/SceneAssets/Materials/Cut Guides/Textures/Dissolve_01_05.png using Guid(1ee80c58231121540976c545b5ec325d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36109510ff512addc039385438ef3897') in 0.013270 seconds 
+  Import took 0.018784 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000188 seconds.
+  path: Assets/HurricaneVR/TechDemo/Textures/interior_albedo.jpg
+  artifactKey: Guid(d5e30e6549206ba47a3c8fb7ea1dec97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/interior_albedo.jpg using Guid(d5e30e6549206ba47a3c8fb7ea1dec97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9c74659f4e634acbc6ed462da05e5c3') in 0.009225 seconds 
+  Import took 0.014706 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000208 seconds.
+  path: Assets/TransformShader/Example/SceneAssets/Materials/Cut Guides/Textures/Dissolve_01_08.png
+  artifactKey: Guid(425b12b50675aac4185520e10e413e00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TransformShader/Example/SceneAssets/Materials/Cut Guides/Textures/Dissolve_01_08.png using Guid(425b12b50675aac4185520e10e413e00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2f241f34fea62411e0f128a46e3f144') in 0.013628 seconds 
+  Import took 0.019266 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/HurricaneVR/TechDemo/Textures/environment_metallic_smoothness.png
+  artifactKey: Guid(ffee414bd768e4c47b931657552d3d73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/environment_metallic_smoothness.png using Guid(ffee414bd768e4c47b931657552d3d73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0893f4bff1302fb950075516a08a007c') in 0.009924 seconds 
+  Import took 0.015223 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000177 seconds.
+  path: Assets/TransformShader/Example/SceneAssets/Materials/Cut Guides/Textures/Dissolve_01_03.png
+  artifactKey: Guid(21cbf090383793248878e18d20508445) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TransformShader/Example/SceneAssets/Materials/Cut Guides/Textures/Dissolve_01_03.png using Guid(21cbf090383793248878e18d20508445) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1be6abdf67daae3c293843a80cebfc69') in 0.012883 seconds 
+  Import took 0.018271 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Assets/HurricaneVR/TechDemo/Textures/Safe.jpg
+  artifactKey: Guid(844d9a3571ddce44cbb1b1da1b1586f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/Safe.jpg using Guid(844d9a3571ddce44cbb1b1da1b1586f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de6748c276437a9772139811fc71b208') in 0.009743 seconds 
+  Import took 0.015296 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/HurricaneVR/TechDemo/Textures/SafeMetallicSmoothness.png
+  artifactKey: Guid(02635da93a4e1334a974f173759fb6dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/SafeMetallicSmoothness.png using Guid(02635da93a4e1334a974f173759fb6dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed2bc1597a8c422a09d65c6eecf03db6') in 0.010316 seconds 
+  Import took 0.016496 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000243 seconds.
+  path: Assets/TransformShader/Example/SceneAssets/Materials/Cut Guides/Textures/Dissolve_01_07.png
+  artifactKey: Guid(b34d699f1a457bd42836b82208206d08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TransformShader/Example/SceneAssets/Materials/Cut Guides/Textures/Dissolve_01_07.png using Guid(b34d699f1a457bd42836b82208206d08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '611315f612a8769fbc77bff62f17615a') in 0.013057 seconds 
+  Import took 0.018371 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000243 seconds.
+  path: Assets/HurricaneVR/TechDemo/Textures/HandsNormal.jpg
+  artifactKey: Guid(b375bc5fe11741e4f8ded4a9f87b96c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/HandsNormal.jpg using Guid(b375bc5fe11741e4f8ded4a9f87b96c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f494fc0044193a16a010313d4c25153a') in 0.040157 seconds 
+  Import took 0.047523 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000148 seconds.
+  path: Assets/HurricaneVR/TechDemo/Textures/glass_metallic_smoothness.png
+  artifactKey: Guid(f948f7632d444b54295fa433565b7e51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/glass_metallic_smoothness.png using Guid(f948f7632d444b54295fa433565b7e51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33eec8738416b5c757cea9f72f10557c') in 0.010169 seconds 
+  Import took 0.015786 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000252 seconds.
+  path: Assets/HurricaneVR/TechDemo/Textures/interior_normal.jpg
+  artifactKey: Guid(90cec047bccd5e64b8f2c22a31607177) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/interior_normal.jpg using Guid(90cec047bccd5e64b8f2c22a31607177) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '428b092540741658f8735d8542bccb41') in 0.010761 seconds 
+  Import took 0.016656 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000227 seconds.
+  path: Assets/HurricaneVR/TechDemo/Textures/OrangePanel.png
+  artifactKey: Guid(98da82e5318092d4bad52458341f72f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/OrangePanel.png using Guid(98da82e5318092d4bad52458341f72f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62c2e797b2caaa0d72d7ad43e7b742a9') in 0.009012 seconds 
+  Import took 0.014226 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000181 seconds.
+  path: Assets/HurricaneVR/TechDemo/Textures/panel_metallic_smoothness.png
+  artifactKey: Guid(a81e099f8807cca44aa06fcfe9a21bad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/panel_metallic_smoothness.png using Guid(a81e099f8807cca44aa06fcfe9a21bad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd910e9128c2176ab455afb3f83959005') in 0.010301 seconds 
+  Import took 0.015893 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000170 seconds.
+  path: Assets/HurricaneVR/TechDemo/Textures/pistol_Albedo_AO.png
+  artifactKey: Guid(d0262a67784576941a8869a2eb2ed44f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/pistol_Albedo_AO.png using Guid(d0262a67784576941a8869a2eb2ed44f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f10a55d2720da70b7d6281e7513399f') in 0.009332 seconds 
+  Import took 0.014372 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000178 seconds.
+  path: Assets/HurricaneVR/TechDemo/Textures/environment_albedo.jpg
+  artifactKey: Guid(11ac14a8ccf0e254b94c21d42cb4f3c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/environment_albedo.jpg using Guid(11ac14a8ccf0e254b94c21d42cb4f3c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '003564b9f27f7049c6d8e1fb5aef01ad') in 0.009922 seconds 
+  Import took 0.015066 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000151 seconds.
+  path: Assets/HurricaneVR/TechDemo/Textures/safe_normal.jpg
+  artifactKey: Guid(43f9e269620ae674ea1316cde2ca9d7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/safe_normal.jpg using Guid(43f9e269620ae674ea1316cde2ca9d7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8842abffbb1b7e806caae29df50641f1') in 0.009630 seconds 
+  Import took 0.015314 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/HurricaneVR/TechDemo/Textures/environment_normal.jpg
+  artifactKey: Guid(98b3faa875593bb408f1b388653a61b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/environment_normal.jpg using Guid(98b3faa875593bb408f1b388653a61b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7df42a340003137ca52db24682b6a5f4') in 0.010129 seconds 
+  Import took 0.015110 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000156 seconds.
+  path: Assets/HurricaneVR/TechDemo/Textures/props_metallic_smoothness.png
+  artifactKey: Guid(079bd423974950849bd133f89ef6ecef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/props_metallic_smoothness.png using Guid(079bd423974950849bd133f89ef6ecef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59beffee0351d706c5446d5f6eba7abd') in 0.010146 seconds 
+  Import took 0.015673 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000180 seconds.
+  path: Assets/TransformShader/Example/SceneAssets/Materials/Cut Guides/Textures/Dissolve_01_04.png
+  artifactKey: Guid(5d67defbd97ea1b4b9f49f1597c4b47a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TransformShader/Example/SceneAssets/Materials/Cut Guides/Textures/Dissolve_01_04.png using Guid(5d67defbd97ea1b4b9f49f1597c4b47a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9a6f24573929398c26d465d55e2fcb0') in 0.014167 seconds 
+  Import took 0.019967 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000167 seconds.
+  path: Assets/TransformShader/Example/SceneAssets/Materials/Cut Guides/Textures/Dissolve_01_01.png
+  artifactKey: Guid(975d75ef47141a64c998571ab88f4a7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TransformShader/Example/SceneAssets/Materials/Cut Guides/Textures/Dissolve_01_01.png using Guid(975d75ef47141a64c998571ab88f4a7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab804f410b5f16323e649e9e1750e1fe') in 0.016055 seconds 
+  Import took 0.021808 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000182 seconds.
+  path: Assets/HurricaneVR/TechDemo/Textures/pistol__Normal.png
+  artifactKey: Guid(9e390dd250815ff4a91b5b15283e0478) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/pistol__Normal.png using Guid(9e390dd250815ff4a91b5b15283e0478) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb47873bc05d71ca1e676228cb6b3b39') in 0.010732 seconds 
+  Import took 0.016403 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000189 seconds.
+  path: Assets/HurricaneVR/TechDemo/Textures/props_normal.jpg
+  artifactKey: Guid(b3f5a37dbcc96c24c89d03aa66f638da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/props_normal.jpg using Guid(b3f5a37dbcc96c24c89d03aa66f638da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c50b82279d8c152f099cfd11742ee56') in 0.010263 seconds 
+  Import took 0.015659 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/HurricaneVR/TechDemo/Textures/Shotgun_Metallic_Smoothness.png
+  artifactKey: Guid(b3ca15c9c91ef1e468e96d819ff0d4d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/Shotgun_Metallic_Smoothness.png using Guid(b3ca15c9c91ef1e468e96d819ff0d4d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee9aa51d5e3e24330c58604a9884626d') in 0.010187 seconds 
+  Import took 0.015901 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/HurricaneVR/TechDemo/Textures/Shotgun_Normal.png
+  artifactKey: Guid(acc42cdcd798579408883862e70ac063) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HurricaneVR/TechDemo/Textures/Shotgun_Normal.png using Guid(acc42cdcd798579408883862e70ac063) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b0f9260c1876b43a61f71241fa5d169') in 0.009794 seconds 
+  Import took 0.015280 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005608 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.00 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.06 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.956 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 1.04 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.06 ms.
+Unloading 3920 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 180.6 MB.
+System memory in use after: 178.3 MB.
+
+Unloading 74 unused Assets to reduce memory usage. Loaded Objects now: 4509.
+Total: 3.696300 ms (FindLiveObjects: 0.292900 ms CreateObjectMapping: 0.157500 ms MarkObjects: 2.200900 ms  DeleteObjects: 1.044200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

@@ -1406,10 +1406,15 @@ namespace HurricaneVR.Editor
             PosesListView.bindItem = BindItem;
             PosesListView.selectionType = SelectionType.Single;
 
-
+#if UNITY_2021_2_OR_NEWER
+            PosesListView.fixedItemHeight = (int)EditorGUIUtility.singleLineHeight;
+#else
             PosesListView.itemHeight = (int)EditorGUIUtility.singleLineHeight;
+#endif
+
             PosesListView.style.height = EditorGUIUtility.singleLineHeight * 5;
             PopulatePoses();
+
 
 #if UNITY_2021_1_OR_NEWER
 

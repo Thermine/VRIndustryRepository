@@ -7,9 +7,22 @@ namespace HurricaneVR.Framework.Components
 {
     public class HVRControllerOffset : MonoBehaviour
     {
+        /// <summary>
+        /// The hand that this controller offset represents.
+        /// </summary>
         public HVRHandSide HandSide;
 
+        /// <summary>
+        /// The transform that aim's the teleport line, it will be counter rotated when a grabbable requests the hand to rotate when held.
+        /// </summary>
+        [Tooltip("The transform that aim's the teleport line, it will be counter rotated when a grabbable requests the hand to rotate when held.")]
         public Transform Teleport;
+
+        /// <summary>
+        /// Smooth lerp speed to move towards the target grab point rotation offset
+        /// </summary>
+        [Tooltip("Smooth lerp speed to move towards the target grab point rotation offset")]
+        public float GrabPointSmoothSpeed = 8f;
 
         private HVRDevicePoseOffset _offsets;
 
@@ -17,6 +30,9 @@ namespace HurricaneVR.Framework.Components
         public Vector3 ControllerRotationOffset => _offsets != null ? _offsets.Rotation : Vector3.zero;
 
         [Header("Debugging")]
+        public Vector3 TargetGrabPointPositionOffset;
+        public Vector3 TargetGrabPointRotationOffset;
+
         public Vector3 GrabPointPositionOffset;
         public Vector3 GrabPointRotationOffset;
 
@@ -25,6 +41,9 @@ namespace HurricaneVR.Framework.Components
 
         public bool LiveUpdateOffsets;
         private Quaternion _teleportStartRotation;
+
+        public bool _updatingRotation;
+        public bool _updatingPosition;
 
         protected virtual void Awake()
         {
@@ -49,12 +68,34 @@ namespace HurricaneVR.Framework.Components
                 HVRInputManager.Instance.RightControllerConnected.AddListener(ControllerConnected);
             }
 
-           
+
         }
 
         public void Update()
         {
-            if (LiveUpdateOffsets)
+            if (_updatingRotation)
+            {
+                GrabPointRotationOffset = Vector3.Lerp(GrabPointRotationOffset, TargetGrabPointRotationOffset, GrabPointSmoothSpeed * Time.deltaTime);
+                if (Vector3.Distance(GrabPointRotationOffset, TargetGrabPointRotationOffset) < .01f)
+                {
+                    _updatingRotation = false;
+                    GrabPointRotationOffset = TargetGrabPointRotationOffset;
+                    ApplyOffsets();
+                }
+            }
+
+            if (_updatingPosition)
+            {
+                GrabPointPositionOffset = Vector3.Lerp(GrabPointPositionOffset, TargetGrabPointPositionOffset, GrabPointSmoothSpeed * Time.deltaTime);
+                if (Vector3.Distance(GrabPointPositionOffset, TargetGrabPointPositionOffset) < .01f)
+                {
+                    _updatingPosition = false;
+                    GrabPointPositionOffset = TargetGrabPointPositionOffset;
+                    ApplyOffsets();
+                }
+            }
+
+            if (LiveUpdateOffsets || _updatingPosition || _updatingRotation)
             {
                 ApplyOffsets();
             }
@@ -70,16 +111,18 @@ namespace HurricaneVR.Framework.Components
 
         public void SetGrabPointOffsets(Vector3 position, Vector3 rotation)
         {
-            GrabPointPositionOffset = position;
-            GrabPointRotationOffset = rotation;
-            ApplyOffsets();
+            TargetGrabPointPositionOffset = position;
+            TargetGrabPointRotationOffset = rotation;
+            _updatingRotation = true;
+            _updatingPosition = true;
         }
 
         public void ResetGrabPointOffsets()
         {
-            GrabPointPositionOffset = Vector3.zero;
-            GrabPointRotationOffset = Vector3.zero;
-            ApplyOffsets();
+            TargetGrabPointPositionOffset = Vector3.zero;
+            TargetGrabPointRotationOffset = Vector3.zero;
+            _updatingRotation = true;
+            _updatingPosition = true;
         }
 
         public void ApplyOffsets()

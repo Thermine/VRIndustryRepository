@@ -69,6 +69,10 @@ namespace HurricaneVR.Framework.Core.Grabbers
         [DrawIf("GrabStyle", HVRForceGrabMode.GravityGloves)] public float AdditionalAutoGrabTime = 1f;
         [DrawIf("GrabStyle", HVRForceGrabMode.GravityGloves)] public float AutoGrabDistance = .2f;
 
+        [Header("Debug")]
+        public bool SlowMo;
+        public float TimeScale = .25f;
+
         public HVRPlayerInputs Inputs => HandGrabber.Inputs;
 
         private bool _grabbableCollided;
@@ -80,7 +84,7 @@ namespace HurricaneVR.Framework.Core.Grabbers
         private bool _canQuickStart;
         private Coroutine _additionalGrabRoutine;
         private HVRGrabbableHoverBase _grabIndicator;
-        private GameObject _forceAnchor;
+        private Transform _anchor;
         private Rigidbody _forceRB;
 
         public float VelocityMagnitude => HandGrabber.HVRTrackedController.VelocityMagnitude;
@@ -116,10 +120,11 @@ namespace HurricaneVR.Framework.Core.Grabbers
 
         private void CheckForceAnchor()
         {
-            if (!_forceAnchor)
+            if (!_anchor)
             {
-                _forceAnchor = new GameObject("ForceAnchor");
-                _forceRB = _forceAnchor.AddComponent<Rigidbody>();
+                var go = new GameObject("ForceAnchor");
+                _anchor = go.transform;
+                _forceRB = _anchor.gameObject.AddComponent<Rigidbody>();
                 _forceRB.isKinematic = true;
             }
         }
@@ -352,14 +357,15 @@ namespace HurricaneVR.Framework.Core.Grabbers
         public IEnumerator ForcePull(HVRGrabbable grabbable)
         {
             var rb = grabbable.Rigidbody;
-            var drag = rb.drag;
             var angularDrag = rb.angularDrag;
-            var useGrav = rb.useGravity;
+            var com = rb.centerOfMass;
+            var drag = rb.drag;
+
             HandGrabber.DisableHandCollision(grabbable);
 
-            rb.useGravity = false;
-            rb.drag = 0f;
             rb.angularDrag = 0f;
+            rb.drag = 0f;
+
             grabbable.IsBeingForcedGrabbed = true;
             IsHoldActive = true;
 
@@ -375,18 +381,9 @@ namespace HurricaneVR.Framework.Core.Grabbers
                 isPhysicsGrab = !posableGrabPoint && grabbable.PhysicsPoserFallback;
             }
 
-
-            var direction = HandGrabber.JointAnchorWorldPosition - grabPoint.position;
-            var startDistance = direction.magnitude;
-            var distance = startDistance;
-
             var settings = grabbable.ForcePullOverride;
             if (!settings)
                 settings = ForcePullSettings;
-
-            var Spring = settings.Spring;
-            var Damper = settings.Damper;
-            var MaxForce = settings.MaxForce;
 
             var SlerpDamper = settings.SlerpDamper;
             var SlerpMaxForce = settings.SlerpMaxForce;
@@ -394,28 +391,27 @@ namespace HurricaneVR.Framework.Core.Grabbers
 
             var DynamicGrabThreshold = settings.DynamicGrabThreshold;
             var DistanceThreshold = settings.DistanceThreshold;
-            var Speed = settings.Speed;
+            var Speed = settings.MaxSpeed;
             var DistanceToRotate = settings.RotateTriggerDistance;
             var RotateOverDistance = settings.RotateOverDistance;
 
-            var MaxMissSpeed = settings.MaxMissSpeed;
-            var MaxMissAngularSpeed = settings.MaxMissAngularSpeed;
-
-            _forceAnchor.transform.position = grabPoint.transform.position;
-            _forceAnchor.transform.rotation = grabbable.transform.rotation;
-
+            var relativeAnchor = grabbable.transform.InverseTransformPoint(grabPoint.transform.position);
             if (posableGrabPoint)
             {
-                _forceAnchor.transform.rotation = posableGrabPoint.GetPoseWorldRotation(HandSide);
+                relativeAnchor = HandGrabber.GetAnchorInGrabbableSpace(grabbable, posableGrabPoint);
+                rb.centerOfMass = relativeAnchor;
             }
+            var grabbableAnchor = grabbable.transform.TransformPoint(relativeAnchor);
 
-            var joint = _forceAnchor.AddComponent<ConfigurableJoint>();
+            _anchor.SetPositionAndRotation(grabbableAnchor, posableGrabPoint ? posableGrabPoint.GetPoseWorldRotation(HandSide) : grabbable.transform.rotation);
+
+            var joint = _anchor.gameObject.AddComponent<ConfigurableJoint>();
             joint.autoConfigureConnectedAnchor = false;
             joint.rotationDriveMode = RotationDriveMode.Slerp;
-            joint.SetLinearDrive(Spring, Damper, MaxForce);
             joint.SetSlerpDrive(SlerpSpring, SlerpDamper, SlerpMaxForce);
             joint.connectedBody = rb;
-            joint.connectedAnchor = rb.transform.InverseTransformPoint(grabPoint.position);
+            joint.connectedAnchor = rb.transform.InverseTransformPoint(grabbableAnchor);
+            joint.anchor = Vector3.zero;
 
             var limit = isPhysicsGrab ? DynamicGrabThreshold : DistanceThreshold;
 
@@ -425,31 +421,42 @@ namespace HurricaneVR.Framework.Core.Grabbers
             var elapsed = 0f;
             var needsRotating = posableGrabPoint;
 
+            if (SlowMo) Time.timeScale = TimeScale;
+
+            var startDistance = Vector3.Distance(HandGrabber.JointAnchorWorldPosition, grabbableAnchor);
+            var distance = startDistance;
+
             while (GrabbedTarget && Inputs.GetForceGrabActive(HandSide) && distance > limit)
             {
-                direction = HandGrabber.JointAnchorWorldPosition - grabPoint.position;
-                distance = direction.magnitude;
+                elapsed += Time.fixedDeltaTime;
 
-                if (HandGrabber.IsValidGrabbable(GrabbedTarget) && HandGrabber.TryAutoGrab(GrabbedTarget, posableGrabPoint))
-                {
-                    break;
-                }
+                grabbableAnchor = grabbable.transform.TransformPoint(relativeAnchor);
+                var delta = JointAnchorWorldPosition - grabbableAnchor;
+                distance = delta.magnitude;
 
-                if ((isPhysicsGrab || grabbable.PoseType == PoseType.Offset) && distance < DynamicGrabThreshold && HandGrabber.TryAutoGrab(grabbable, posableGrabPoint))
+                if (isPhysicsGrab && distance < DynamicGrabThreshold && HandGrabber.TryAutoGrab(grabbable, posableGrabPoint))
                 {
                     rb.angularVelocity = Vector3.zero;
                     rb.velocity = Vector3.zero;
                     break;
                 }
 
+                var invDt = 1f / Time.fixedDeltaTime;
+                var targetVel = HandGrabber.Rigidbody.velocity;
+                var velocity = rb.velocity;
+                var mass = rb.mass;
 
-                _forceAnchor.transform.position = Vector3.MoveTowards(_forceAnchor.transform.position, JointAnchorWorldPosition, Speed * Time.fixedDeltaTime);
-                var dir = _forceAnchor.transform.position - grabPoint.position;
-                if (dir.magnitude > .3f)
-                {
-                    _forceAnchor.transform.position = grabPoint.position + dir.normalized * .3f;
-                }
+                var desiredVel = Vector3.ClampMagnitude(delta * invDt, settings.MaxSpeed);
+                
+                var desiredForce = (desiredVel - (velocity - targetVel)) * (invDt * mass);
+                var force = Vector3.ClampMagnitude(desiredForce, settings.MaxAccelerationForce);
 
+                var dampMulti = (settings.DampDistance - Mathf.Clamp(distance, 0f, settings.DampDistance)) / settings.DampDistance;
+                var gravityForce = rb.useGravity ? -Physics.gravity * (mass * settings.CounterGravityFactor) : Vector3.zero;
+
+                rb.AddForce(force + gravityForce);
+                rb.velocity = Vector3.Lerp(velocity, targetVel, dampMulti * settings.DampSpeed * Time.fixedDeltaTime);
+                
                 if (needsRotating && !rotating)
                 {
                     if (settings.RotationTrigger == ForcePullRotationTrigger.DistanceToHand)
@@ -483,14 +490,13 @@ namespace HurricaneVR.Framework.Core.Grabbers
 
                 if (rotating)
                 {
-                    joint.transform.rotation = Quaternion.RotateTowards(joint.transform.rotation, HandGrabber.CachedWorldRotation, rotateSpeed * Time.fixedDeltaTime);
+                    _anchor.rotation = Quaternion.RotateTowards(_anchor.rotation, HandGrabber.CachedWorldRotation, rotateSpeed * Time.fixedDeltaTime);
                 }
 
                 yield return new WaitForFixedUpdate();
-
-                elapsed += Time.fixedDeltaTime;
             }
 
+            if (SlowMo) Time.timeScale = 1f;
             ResetAnimator();
 
 
@@ -502,17 +508,15 @@ namespace HurricaneVR.Framework.Core.Grabbers
 
             if (grabbable)
             {
-
-                rb.useGravity = useGrav;
-                rb.drag = drag;
                 rb.angularDrag = angularDrag;
-                rb.velocity = Vector3.ClampMagnitude(rb.velocity, MaxMissSpeed);
-                rb.angularVelocity = Vector3.ClampMagnitude(rb.angularVelocity, MaxMissAngularSpeed);
+                rb.drag = drag;
+                rb.velocity = Vector3.ClampMagnitude(rb.velocity, settings.MaxMissSpeed);
+                rb.angularVelocity = Vector3.ClampMagnitude(rb.angularVelocity, settings.MaxMissAngularSpeed);
+                rb.centerOfMass = com;
 
                 if (IsGrabbing)
                 {
-                    direction = HandGrabber.JointAnchorWorldPosition - grabPoint.position;
-                    if (direction.magnitude < limit)
+                    if (distance < limit)
                     {
                         if (HandGrabber.TryAutoGrab(grabbable, posableGrabPoint))
                         {
@@ -530,6 +534,8 @@ namespace HurricaneVR.Framework.Core.Grabbers
                 }
             }
         }
+
+    
 
         public IEnumerator GravityGloves(HVRGrabbable grabbable)
         {
@@ -569,15 +575,15 @@ namespace HurricaneVR.Framework.Core.Grabbers
 
                 var elapsed = 0f;
 
-                _forceAnchor.transform.position = grabbable.transform.position;
-                _forceAnchor.transform.rotation = grabbable.transform.rotation;
+                _anchor.position = grabbable.transform.position;
+                _anchor.rotation = grabbable.transform.rotation;
 
                 if (posableGrabPoint)
                 {
-                    _forceAnchor.transform.rotation = posableGrabPoint.GetPoseWorldRotation(HandSide);
+                    _anchor.rotation = posableGrabPoint.GetPoseWorldRotation(HandSide);
                 }
 
-                var joint = _forceAnchor.AddComponent<ConfigurableJoint>();
+                var joint = _anchor.gameObject.AddComponent<ConfigurableJoint>();
                 joint.autoConfigureConnectedAnchor = false;
                 joint.rotationDriveMode = RotationDriveMode.Slerp;
                 joint.SetLinearDrive(0f, 0f, 0f);

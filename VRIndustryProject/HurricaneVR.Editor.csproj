@@ -96,6 +96,7 @@
     <None Include="Assets\HurricaneVR\Framework\Editor\Resources\HVRBlendEditor.uxml" />
     <None Include="Assets\HurricaneVR\Framework\Editor\Resources\HVRSetupWindow.uxml" />
     <None Include="Assets\HurricaneVR\Framework\Editor\Resources\HVRManagementWindow.uxml" />
+    <None Include="Assets\HurricaneVR\Framework\Editor\Libs\HurricaneVR.Update.dll" />
     <None Include="Assets\HurricaneVR\Framework\Editor\Resources\HVRHandPoseEditor.uxml" />
     <None Include="Assets\HurricaneVR\Framework\Editor\Resources\HVRPhysicsPoserEditor.uxml" />
     <None Include="Assets\HurricaneVR\Framework\Editor\Resources\HVRHandPoserEditor.uxml" />
@@ -349,6 +350,9 @@
     </Reference>
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.5.7\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+    </Reference>
+    <Reference Include="HurricaneVR.Update">
+      <HintPath>Assets\HurricaneVR\Framework\Editor\Libs\HurricaneVR.Update.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
@@ -715,10 +719,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Hurricane.Shared.csproj">
-      <Project>{3F16E8C3-3B50-B6D7-B1C4-EAEE9A71F3E1}</Project>
-      <Name>Hurricane.Shared</Name>
-    </ProjectReference>
     <ProjectReference Include="HurricaneVR.Framework.csproj">
       <Project>{F46CDB5E-66EA-D3A9-F016-9AE77E6630A4}</Project>
       <Name>HurricaneVR.Framework</Name>

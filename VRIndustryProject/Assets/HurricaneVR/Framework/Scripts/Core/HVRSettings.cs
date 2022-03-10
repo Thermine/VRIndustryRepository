@@ -120,6 +120,7 @@ namespace HurricaneVR.Framework.Core
         [Header("Debugging")]
         public bool VerboseGrabbableEvents;
         public bool VerboseHandGrabberEvents;
+        public bool DisableHaptics;
 
         public GameObject GetPoserHand(HVRHandSide side)
         {
@@ -150,7 +151,7 @@ namespace HurricaneVR.Framework.Core
                 Debug.LogException(e);
             }
 
-            TryCreateReferencePoseFolder();
+            //TryCreateReferencePoseFolder();
             TryCreateRuntimePoseFolder();
 
             SetupDefaultHands(settings);
@@ -204,9 +205,8 @@ namespace HurricaneVR.Framework.Core
             var rootPath = UnityEditor.AssetDatabase.GetAssetPath(rootScript);
             var rootFileInfo = new FileInfo(rootPath);
 
-            //todo - path with another Shared fails
-
-            return rootFileInfo.Directory.FullName.Replace("Shared", "");
+            return rootFileInfo.Directory.FullName.Replace($"HurricaneVR{Path.DirectorySeparatorChar}Framework{Path.DirectorySeparatorChar}Scripts",
+                $"HurricaneVR{Path.DirectorySeparatorChar}Framework{Path.DirectorySeparatorChar}");
         }
 
         private string GetResourcesDirectory()
@@ -324,8 +324,8 @@ namespace HurricaneVR.Framework.Core
         [InspectorButton("ShowPosesFolderChooser")]
         public string ChosePosesDirectory = "Choose Pose Directory";
 
-        [InspectorButton("ShowReferencePosesFolderChooser", 300)]
-        public string ChoseReferencePosesDirectory = "Choose Reference Poses Directory";
+        //[InspectorButton("ShowReferencePosesFolderChooser", 300)]
+        //public string ChoseReferencePosesDirectory = "Choose Reference Poses Directory";
 
         [InspectorButton("ShowRuntimePosesFolderChooser", 300)]
         public string ChoseRunTimePosesDirectory = "Choose RunTime Poses Directory";

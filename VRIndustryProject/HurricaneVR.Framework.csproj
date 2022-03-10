@@ -70,6 +70,7 @@
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\HVRManager.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\HVRGrabbableChild.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\Bags\HVRSocketBag.cs" />
+    <Compile Include="Assets\HurricaneVR\Framework\Scripts\Oculus\HVROculusController.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\Sockets\HVRSocketHoverMaterial.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\VREvents.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\HandPoser\HVRGrabPointSwapper.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Weapons\Guns\HVRBulletEmitter.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\Utils\HVRUtilities.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\ScriptableObjects\HVRForcePullSettings.cs" />
+    <Compile Include="Assets\HurricaneVR\Framework\Scripts\Shared\HVREnums.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Weapons\HVRPump.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Components\HVRHandImpactHaptics.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\ControllerInput\HVRInputSystemController.cs" />
@@ -107,6 +109,7 @@
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Weapons\Guns\HVRGunPart.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\Player\HVRPhysicsHands.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\Utils\HVRObjectCollisionDisabler.cs" />
+    <Compile Include="Assets\HurricaneVR\Framework\Scripts\SteamVR\HVRSteamVRController.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Components\HVRMeshRendererHighlight.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Weapons\Bow\HVRArrowPassthrough.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\HVRGrabberManager.cs" />
@@ -120,6 +123,7 @@
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\Sockets\HVRSocketHoverScale.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\Player\HVRPlayerController.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Weapons\Guns\PartFinders\HVRChamberedRoundFinder.cs" />
+    <Compile Include="Assets\HurricaneVR\Framework\Scripts\Shared\InspectorButton.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\ControllerInput\InputSystem\HVRInputActions.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\Stabbing\HVRStabbable.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\Sockets\HVRSocketableTags.cs" />
@@ -161,6 +165,7 @@
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Weapons\Guns\HVRGunHaptics.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\HandPoser\HVRHandAnimator.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Components\HVRDamageProvider.cs" />
+    <Compile Include="Assets\HurricaneVR\Framework\Scripts\Shared\HVRGrabHaptics.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\Sockets\HVRStringSocketable.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Components\HVRDestroyListener.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Components\HVRMeshGlowHighlight.cs" />
@@ -187,6 +192,7 @@
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Weapons\Guns\HVRGunBolt.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Weapons\HVRPistol.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\ControllerInput\HVRInputManager.cs" />
+    <Compile Include="Assets\HurricaneVR\Framework\Scripts\Oculus\HVROculusHandAnimator.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Weapons\HVRShotgunMagazine.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\Stabbing\HVRStabbableSettings.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Weapons\Bow\HVRArrowLoader.cs" />
@@ -203,7 +209,9 @@
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Weapons\Guns\PartFinders\HVRChamberedCasingFinder.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\Grabbers\HVRSocketContainerGrabber.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Weapons\HVRBolt.cs" />
+    <Compile Include="Assets\HurricaneVR\Framework\Scripts\Shared\Utilities\CoroutineExtensions.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\Utils\DebugTools.cs" />
+    <Compile Include="Assets\HurricaneVR\Framework\Scripts\Oculus\HVRGestureDetector.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Weapons\Bow\HVRPhysicsBow.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Weapons\Bow\HVRBowBase.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Components\HVRCenterOfMassOverride.cs" />
@@ -214,6 +222,7 @@
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Components\HVRThrowingCenterOfMass.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\Utils\DebugVR.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\ControllerInput\InputSystem\HVRTrackedPoseDriver.cs" />
+    <Compile Include="Assets\HurricaneVR\Framework\Scripts\HVRRootFinder.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\Stabbing\HVRStabberSettings.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\Player\HVRTeleportOptions.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Weapons\HVRAmmo.cs" />
@@ -229,6 +238,8 @@
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\Player\HVRScreenFade.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Components\HVRRigidbodyLocker.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\Sockets\HVRGrabbableSocketFilter.cs" />
+    <Compile Include="Assets\HurricaneVR\Framework\Scripts\Shared\HVRInputSettings.cs" />
+    <Compile Include="Assets\HurricaneVR\Framework\Scripts\Shared\HVRFingerSettings.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Components\HVRControllerOffset.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\Grabbers\HVRForceGrabber.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\HandPoser\HVRPosableGrabPoint.cs" />
@@ -237,6 +248,7 @@
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\ControllerInput\InputEvents\HVRMenuButtonEvents.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\Sockets\HVRTagSocketFilter.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\ControllerInput\HVRControllerEvents.cs" />
+    <Compile Include="Assets\HurricaneVR\Framework\Scripts\Shared\Utilities\CircularBuffer.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\Utils\HVRComments.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Weapons\HVRSlide.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\HVRGrabPoints.cs" />
@@ -258,6 +270,7 @@
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Weapons\HVRRayCastGun.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Components\HVRRingHighlight.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Core\HandPoser\HVRHandPoseBlend.cs" />
+    <Compile Include="Assets\HurricaneVR\Framework\Scripts\Shared\HVRController.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\ControllerInput\InputEvents\HVRSecondaryTouchButtonEvents.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Weapons\Bow\HVRArrow.cs" />
     <Compile Include="Assets\HurricaneVR\Framework\Scripts\Weapons\Guns\HVRTriggerAnimator.cs" />
@@ -527,6 +540,9 @@
     </Reference>
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.5.7\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+    </Reference>
+    <Reference Include="HurricaneVR.Update">
+      <HintPath>Assets\HurricaneVR\Framework\Editor\Libs\HurricaneVR.Update.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.13f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>
@@ -890,9 +906,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Hurricane.Shared.csproj">
-      <Project>{3F16E8C3-3B50-B6D7-B1C4-EAEE9A71F3E1}</Project>
-      <Name>Hurricane.Shared</Name>
+    <ProjectReference Include="Oculus.VR.csproj">
+      <Project>{DB11FCF3-EFBE-1572-E994-89F6FB44715A}</Project>
+      <Name>Oculus.VR</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

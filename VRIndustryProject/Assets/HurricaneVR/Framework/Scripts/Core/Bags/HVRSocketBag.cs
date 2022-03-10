@@ -132,7 +132,8 @@ namespace HurricaneVR.Framework.Core.Bags
             }
 
             // x->y ascending sort
-            ValidSockets.Sort(this);
+            //ValidSockets.Sort(this);
+            SortHelper.Sort(ValidSockets, 0, ValidSockets.Count, this);
 
             ClosestSocket = ValidSockets.FirstOrDefault();
         }

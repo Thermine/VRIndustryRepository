@@ -67,7 +67,7 @@ namespace HurricaneVR.Framework.Core.Stabbing
         public HVRStabEvents FullStabbed = new HVRStabEvents();
 
         public Vector3 StabLineWorld => Tip.position - Base.position;
-        public Vector3 StabLineLocal => Tip.localPosition - Base.localPosition;
+        public Vector3 StabLineLocal => Rigidbody.transform.InverseTransformPoint(Tip.position) - Rigidbody.transform.InverseTransformPoint(Base.position);
 
         public float Length => StabLineWorld.magnitude;
 
@@ -208,7 +208,7 @@ namespace HurricaneVR.Framework.Core.Stabbing
                 GameObject stabbedObject;
                 HVRStabbable stabbable;
                 HVRNotStabbable notStabbable;
-              
+
                 var otherRB = contact.otherCollider.attachedRigidbody;
                 if (otherRB)
                 {
@@ -412,7 +412,7 @@ namespace HurricaneVR.Framework.Core.Stabbing
             //}
             //else
             {
-                joint.anchor = tip.localPosition;
+                joint.anchor = Rigidbody.transform.InverseTransformPoint(tip.position);
                 joint.xMotion = ConfigurableJointMotion.Limited;
             }
 

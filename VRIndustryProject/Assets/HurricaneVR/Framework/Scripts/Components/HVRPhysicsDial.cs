@@ -22,7 +22,7 @@ namespace HurricaneVR.Framework.Components
         public bool StopOnRelease = true;
 
         public bool DisableGravity = true;
-        
+
         [Header("Joint Limits")]
         public bool LimitRotation;
 
@@ -86,12 +86,12 @@ namespace HurricaneVR.Framework.Components
 
         protected virtual void Start()
         {
-           
+
         }
 
         protected virtual void Update()
         {
-            Joint.targetAngularVelocity = new Vector3(TargetAngularVelocity, 0f, 0f);
+            if (TargetAngularVelocity > 0f || TargetAngularVelocity < 0f) Joint.targetAngularVelocity = new Vector3(TargetAngularVelocity, 0f, 0f);
         }
 
         private void OnDialReleased(HVRHandGrabber arg0, HVRGrabbable arg1)
@@ -117,7 +117,7 @@ namespace HurricaneVR.Framework.Components
             Joint.LockLinearMotion();
             Joint.LockAngularYMotion();
             Joint.LockAngularZMotion();
-
+            Joint.anchor = Vector3.zero;
             Joint.axis = Axis.GetVector();
 
             if (LimitRotation)

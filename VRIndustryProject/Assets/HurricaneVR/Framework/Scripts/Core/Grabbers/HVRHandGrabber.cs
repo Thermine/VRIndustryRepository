@@ -332,6 +332,8 @@ namespace HurricaneVR.Framework.Core.Grabbers
 
         public Vector3 CachedWorldPosition => transform.TransformPoint(HandModelPosition);
 
+        public Vector3 HandWorldPosition => HandModel.position;
+
         public Quaternion CachedWorldRotation => transform.rotation * HandModelRotation;
         public Quaternion HandWorldRotation => HandModel.rotation;
 
@@ -385,7 +387,7 @@ namespace HurricaneVR.Framework.Core.Grabbers
 
         private Vector3 _pusherSize;
         private bool _pushing;
-        private GameObject _forceAnchor;
+        private GameObject _anchor;
         private Rigidbody _forceRB;
 
         private bool _swappingGrabPoint;
@@ -412,7 +414,7 @@ namespace HurricaneVR.Framework.Core.Grabbers
             CheckPullAnchor();
         }
 
-      
+
 
         protected override void Start()
         {
@@ -603,6 +605,7 @@ namespace HurricaneVR.Framework.Core.Grabbers
 
         protected override void FixedUpdate()
         {
+            if(PullingGrabbable) UpdatePullGrabbable();
             UpdateLineGrab();
             UpdatePostMoveGrab();
             UpdatePushing();
@@ -1026,7 +1029,7 @@ namespace HurricaneVR.Framework.Core.Grabbers
                         {
                             this.ExecuteAfterFixedUpdate(() =>
                             {
-                                if (grabbable == GrabbedTarget) CollisionHandler.SweepHand(this, grabbable);
+                                if (grabbable == GrabbedTarget) CollisionHandler.Sweep(this);
                             });
                         }
                     }
@@ -1393,180 +1396,167 @@ namespace HurricaneVR.Framework.Core.Grabbers
 
         private void CheckPullAnchor()
         {
-            if (!_forceAnchor)
+            if (!_anchor)
             {
-                _forceAnchor = new GameObject($"{HandSide} PullAnchor");
-                _forceRB = _forceAnchor.AddComponent<Rigidbody>();
+                _anchor = new GameObject($"{HandSide} PullAnchor");
+                _forceRB = _anchor.AddComponent<Rigidbody>();
                 _forceRB.isKinematic = true;
             }
         }
 
-        protected virtual IEnumerator PullGrabbable(HVRGrabbable grabbable)
+        protected virtual void StartPull()
         {
-
+            var grabbable = GrabbedTarget;
+            _startPos = GrabbedTarget.transform.position;
+            _startRot = GrabbedTarget.transform.rotation;
             CheckPullAnchor();
-            var joint = _forceAnchor.AddComponent<ConfigurableJoint>();
+            _anchor.transform.position = _startPos;
+            _anchor.transform.rotation = _startRot;
             PullingGrabbable = true;
+            _pullingTimer = 0f;
+
+            PullJoint = _anchor.AddComponent<ConfigurableJoint>();
+
+
+            HVRJointSettings pullSettings = null;
+
+            if (grabbable.PullingSettingsOverride)
+            {
+                pullSettings = grabbable.PullingSettingsOverride;
+            }
+            else if (PullingSettings)
+            {
+                pullSettings = PullingSettings;
+            }
+
+            PullJoint.autoConfigureConnectedAnchor = false;
+            PullJoint.rotationDriveMode = RotationDriveMode.Slerp;
+            PullJoint.connectedBody = grabbable.Rigidbody;
+            PullJoint.connectedAnchor = Vector3.zero;
+            PullJoint.anchor = Vector3.zero;
+
+            pullSettings.ApplySettings(PullJoint);
+
+            _distanceComplete = false;
+            if (_isForceAutoGrab) _distanceComplete = true;
+        }
+
+        protected virtual void CleanupPull()
+        {
+            if (_posJoint) Destroy(_posJoint);
+            if (_rotJoint) Destroy(_rotJoint);
+            if (PullJoint) Destroy(PullJoint);
+            PullingGrabbable = false;
+        }
+
+        private bool _distanceComplete;
+        private ConfigurableJoint _posJoint;
+        private ConfigurableJoint _rotJoint;
+
+        protected virtual void UpdatePullGrabbable()
+        {
+            var grabbable = GrabbedTarget;
+
+            _pullingTimer += Time.fixedDeltaTime;
+
+
+            var deltaRot = CachedWorldRotation * Quaternion.Inverse(PoseWorldRotation);
+            var offset = deltaRot * (grabbable.transform.position - PoseWorldPosition);
+
+            if (IsInitialLineGrab)
+            {
+                offset = deltaRot * (grabbable.transform.position - (PoseWorldPosition + (grabbable.transform.TransformPoint(BaseLineGrabAnchor + _lineOffset) - GrabPoint.position)));
+            }
+
+            var targetPos = offset + CachedWorldPosition;
+
+            var angleDelta = Quaternion.Angle(PoseWorldRotation, CachedWorldRotation);
+
+            bool angleComplete;
+            if (_pullingTimer <= PullLerpTime)
+            {
+                _anchor.transform.SetPositionAndRotation(
+                    Vector3.Lerp(_startPos, targetPos, _pullingTimer / PullLerpTime),
+                    Quaternion.Lerp(_startRot, deltaRot * grabbable.transform.rotation, _pullingTimer / PullLerpTime));
+                angleComplete = angleDelta < 15f;
+            }
+            else
+            {
+                _anchor.transform.SetPositionAndRotation(offset + CachedWorldPosition, deltaRot * grabbable.transform.rotation);
+                angleComplete = angleDelta < grabbable.FinalJointMaxAngle;
+            }
+
+
+            if (!_distanceComplete)
+            {
+                _distanceComplete = Vector3.Distance(HandAnchorWorld, GrabAnchorWorld) < .07f;
+            }
+
+            var done = false;
+         
 
             try
             {
-                _pullingTimer = 0f;
-                var _startPos = grabbable.transform.position;
-                var _startRot = grabbable.transform.rotation;
-                _forceAnchor.transform.position = _startPos;
-                _forceAnchor.transform.rotation = _startRot;
-
-                HVRJointSettings pullSettings = null;
-
-                if (grabbable.PullingSettingsOverride)
-                {
-                    pullSettings = grabbable.PullingSettingsOverride;
-                }
-                else if (PullingSettings)
-                {
-                    pullSettings = PullingSettings;
-                }
-
-                joint.autoConfigureConnectedAnchor = false;
-                joint.rotationDriveMode = RotationDriveMode.Slerp;
-                joint.connectedBody = grabbable.Rigidbody;
-                joint.connectedAnchor = Vector3.zero;
-
-                pullSettings.ApplySettings(joint);
-
-
-                var angleComplete = false;
-                var distanceComplete = false;
-                var angleDelta = 360f;
-
-                while (GrabbedTarget && _pullingTimer < PullLerpTime * 2f)
-                {
-                    var deltaRot = CachedWorldRotation * Quaternion.Inverse(PoseWorldRotation);
-                    var offset = deltaRot * (grabbable.transform.position - PoseWorldPosition);
-
-                    if (IsLineGrab)
-                    {
-                        offset = deltaRot * (grabbable.transform.position - (PoseWorldPosition + (grabbable.transform.TransformPoint(BaseLineGrabAnchor + _lineOffset) - GrabPoint.position)));
-                    }
-
-                    _pullingTimer += Time.fixedDeltaTime;
-
-                    _forceAnchor.transform.rotation = Quaternion.Lerp(_startRot, deltaRot * grabbable.transform.rotation, _pullingTimer / PullLerpTime);
-                    _forceAnchor.transform.position = Vector3.Lerp(_startPos, offset + CachedWorldPosition, _pullingTimer / PullLerpTime);
-
-                    yield return _wffu;
-
-                    if (!GrabbedTarget) break;
-
-                    angleDelta = Quaternion.Angle(PoseWorldRotation, CachedWorldRotation);
-                    angleComplete = angleDelta < 15f;
-                    distanceComplete = angleComplete && Vector3.Distance(HandAnchorWorld, GrabAnchorWorld) < .07f;
-
-                    if (angleComplete && distanceComplete)
-                        break;
-                }
-
-                if (!GrabbedTarget)
-                {
-                    Destroy(joint);
-                    PullingGrabbable = false;
-                    yield break;
-                }
-
-                if (grabbable.GrabberCount > 1)
-                {
-                    Destroy(joint);
-                    StartCoroutine(MoveGrab());
-                    PullingGrabbable = false;
-                    yield break;
-                }
-
-                if (angleComplete && distanceComplete)
-                {
-                    var deltaRot = CachedWorldRotation * Quaternion.Inverse(PoseWorldRotation);
-                    grabbable.transform.rotation = deltaRot * grabbable.transform.rotation;
-                    angleDelta = Quaternion.Angle(PoseWorldRotation, CachedWorldRotation);
-
-                    if (HVRSettings.Instance.VerboseHandGrabberEvents)
-                        Debug.Log($"{HandSide} quick joint created, elapsed {_pullingTimer:f3}, angleDelta: {angleDelta}, pos delta {Vector3.Distance(CachedWorldPosition, PoseWorldPosition)}");
-
-                    SetupConfigurableJoint(grabbable);
-                    Destroy(joint);
-                    PullingGrabbable = false;
-                    yield break;
-                }
-
-                while (GrabbedTarget && _pullingTimer < grabbable.FinalJointTimeout)
-                {
-                    var deltaRot = CachedWorldRotation * Quaternion.Inverse(PoseWorldRotation);
-                    var offset = deltaRot * (grabbable.transform.position - PoseWorldPosition);
-
-                    if (IsLineGrab)
-                    {
-                        offset = deltaRot * (grabbable.transform.position - (PoseWorldPosition + (grabbable.transform.TransformPoint(BaseLineGrabAnchor + _lineOffset) - GrabPoint.position)));
-                    }
-
-                    _pullingTimer += Time.fixedDeltaTime;
-
-                    _forceAnchor.transform.rotation = deltaRot * grabbable.transform.rotation;
-                    _forceAnchor.transform.position = offset + CachedWorldPosition;
-
-                    yield return _wffu;
-
-                    if (!GrabbedTarget) break;
-
-                    angleDelta = Quaternion.Angle(PoseWorldRotation, CachedWorldRotation);
-                    angleComplete = angleDelta < grabbable.FinalJointMaxAngle;
-                    distanceComplete = angleComplete && Vector3.Distance(HandAnchorWorld, GrabAnchorWorld) < .07f;
-
-                    if (angleComplete && distanceComplete)
-                        break;
-                }
-
-                if (!GrabbedTarget)
-                {
-                    Destroy(joint);
-                    PullingGrabbable = false;
-                    yield break;
-                }
+                var timesUp = _pullingTimer > PullLerpTime && _pullingTimer > grabbable.FinalJointTimeout;
 
                 //another hand grabbed while pulling, finish off with a move grab
-                if (grabbable.GrabberCount > 1)
+                if (grabbable.GrabberCount > 1 || timesUp && angleDelta > MoveThreshold)
                 {
-                    Destroy(joint);
+                    done = true;
                     StartCoroutine(MoveGrab());
-                    PullingGrabbable = false;
-                    yield break;
+                    return;
                 }
 
-
-                if ((angleComplete && distanceComplete) || (MoveThreshold < .01f || angleDelta < MoveThreshold))
+                if (angleComplete && _distanceComplete || timesUp)
                 {
-                    var deltaRot = CachedWorldRotation * Quaternion.Inverse(PoseWorldRotation);
                     grabbable.transform.rotation = deltaRot * grabbable.transform.rotation;
                     angleDelta = Quaternion.Angle(PoseWorldRotation, CachedWorldRotation);
 
                     if (HVRSettings.Instance.VerboseHandGrabberEvents)
-                        Debug.Log($"{HandSide} final joint created, elapsed {_pullingTimer:f3}, angleDelta: {angleDelta}, pos delta {Vector3.Distance(CachedWorldPosition, PoseWorldPosition)}");
-                    Destroy(joint);
+                        Debug.Log($"{HandSide} joint created, elapsed {_pullingTimer:f3}, angleDelta: {angleDelta}, pos delta {Vector3.Distance(CachedWorldPosition, PoseWorldPosition)}");
+
                     SetupConfigurableJoint(grabbable);
-                    PullingGrabbable = false;
-                    yield break;
+                    done = true;
                 }
-
-                Destroy(joint);
-                PullingGrabbable = false;
-                if (HVRSettings.Instance.VerboseHandGrabberEvents)
-                    Debug.Log($"movegrab fallback elapsed {_pullingTimer:f3}, angleDelta: {angleDelta}, pos delta {Vector3.Distance(CachedWorldPosition, PoseWorldPosition)}");
-                StartCoroutine(MoveGrab());
-
+                else if (_distanceComplete && !_posJoint)
+                {
+                    _posJoint = grabbable.gameObject.AddComponent<ConfigurableJoint>();
+                    _posJoint.LockLinearMotion();
+                    _posJoint.connectedBody = Rigidbody;
+                    _posJoint.autoConfigureConnectedAnchor = false;
+                    _posJoint.anchor = GrabAnchorLocal;
+                    if (IsLineGrab)
+                    {
+                        _posJoint.anchor = BaseLineGrabAnchor + _lineOffset;
+                    }
+                    _posJoint.connectedAnchor = HandAnchorLocal;
+                    PullJoint.SetLinearDrive(0f, 0f, 0f);
+                }
+                else if (angleComplete && !_rotJoint)
+                {
+                    grabbable.transform.rotation = deltaRot * grabbable.transform.rotation;
+                    _rotJoint = grabbable.gameObject.AddComponent<ConfigurableJoint>();
+                    _rotJoint.LockAllAngularMotion();
+                    _rotJoint.connectedBody = Rigidbody;
+                    _rotJoint.autoConfigureConnectedAnchor = false;
+                    _rotJoint.anchor = GrabAnchorLocal;
+                    if (IsLineGrab)
+                    {
+                        _posJoint.anchor = BaseLineGrabAnchor + _lineOffset;
+                    }
+                    _rotJoint.connectedAnchor = HandAnchorLocal;
+                    PullJoint.SetSlerpDrive(0f, 0f, 0f);
+                }
             }
             finally
             {
-                PullingGrabbable = false;
-                if (joint) Destroy(joint);
+                if (done)
+                {
+                    CleanupPull();
+                }
             }
         }
+
 
         private float _breakDistanceNext;
 
@@ -1581,7 +1571,7 @@ namespace HurricaneVR.Framework.Core.Grabbers
 
         protected virtual void CheckBreakDistance()
         {
-            if (_handMoving || PullingGrabbable || !GrabbedTarget || Time.time < _breakDistanceNext || (GrabbedTarget.IsJointGrab && !_finalJointCreated) || !CheckBreakDistanceReached())
+            if (_handMoving || PullingGrabbable || !GrabbedTarget || Time.time < _breakDistanceNext || (GrabbedTarget.IsJointGrab && !_finalJointCreated) || !CheckBreakDistanceReached(GrabbedTarget))
                 return;
 
             //Debug.Break();
@@ -1593,9 +1583,13 @@ namespace HurricaneVR.Framework.Core.Grabbers
             ForceRelease();
         }
 
-        protected virtual bool CheckBreakDistanceReached()
+        protected virtual bool CheckBreakDistanceReached(HVRGrabbable grabbable)
         {
-            return Vector3.Distance(GrabAnchorWorld, JointAnchorWorldPosition) > GrabbedTarget.BreakDistance;
+            if(grabbable.BreakDistanceSource == BreakDistanceSource.Hand)
+                return Vector3.Distance(GrabAnchorWorld, JointAnchorWorldPosition) > grabbable.BreakDistance;
+            if (grabbable.BreakDistanceSource == BreakDistanceSource.Controller)
+                return Vector3.Distance(GrabAnchorWorld, TrackedController.position) > grabbable.BreakDistance;
+            return false;
         }
 
         private void CheckPoseHand()
@@ -1855,7 +1849,7 @@ namespace HurricaneVR.Framework.Core.Grabbers
             _moveGrab = false;
             _finalJointCreated = false;
 
-            SetToggle(grabbable);
+            GrabToggleActive = GrabTrigger == HVRGrabTrigger.Toggle || grabbable.OverrideGrabTrigger && grabbable.GrabTrigger == HVRGrabTrigger.Toggle;
 
             CanActivate = false;
 
@@ -1972,26 +1966,6 @@ namespace HurricaneVR.Framework.Core.Grabbers
 
             return Mathf.Abs(v1Dot) > Mathf.Abs(v2Dot);
         }
-
-
-        private void SetToggle(HVRGrabbable grabbable)
-        {
-            var toggle = GrabTrigger == HVRGrabTrigger.Toggle;
-
-            if (grabbable.OverrideGrabTrigger)
-            {
-                if (grabbable.GrabTrigger == HVRGrabTrigger.Toggle)
-                {
-                    toggle = true;
-                }
-            }
-
-            if (toggle)
-            {
-                GrabToggleActive = true;
-            }
-        }
-
 
         private void OffsetGrab(HVRGrabbable grabbable)
         {
@@ -2233,7 +2207,7 @@ namespace HurricaneVR.Framework.Core.Grabbers
                 }
                 else //needs pulling and rotating into position
                 {
-                    StartCoroutine(PullGrabbable(grabbable));
+                    StartPull();
                 }
 
                 if (grabbable.Rigidbody && (!grabbable.Rigidbody.isKinematic || !grabbable.RemainsKinematic))
@@ -2300,6 +2274,33 @@ namespace HurricaneVR.Framework.Core.Grabbers
 
             _fakeHand.parent = transform;
 
+
+            return anchor;
+        }
+
+        internal Vector3 GetAnchorInGrabbableSpace(HVRGrabbable grabbable, HVRPosableGrabPoint posableGrabPoint)
+        {
+            var grabTransform = grabbable.transform;
+
+            if (grabbable.Rigidbody) grabTransform = grabbable.Rigidbody.transform;
+
+            if (posableGrabPoint.IsJointAnchor)
+                return posableGrabPoint.transform.localPosition;
+
+            var positionOffset = posableGrabPoint.GetPosePositionOffset(HandSide);
+            var rotationOffset = posableGrabPoint.GetPoseRotationOffset(HandSide);
+
+            _fakeHand.localPosition = HandModelPosition;
+            _fakeHand.localRotation = HandModelRotation;
+            _fakeHandAnchor.position = JointAnchorWorldPosition;
+
+            _fakeHand.parent = posableGrabPoint.transform;
+            _fakeHand.localPosition = positionOffset;
+            _fakeHand.localRotation = rotationOffset;
+
+            var anchor = grabTransform.InverseTransformPoint(_fakeHandAnchor.position);
+
+            _fakeHand.parent = transform;
 
             return anchor;
         }
@@ -2398,39 +2399,18 @@ namespace HurricaneVR.Framework.Core.Grabbers
             Joint.secondaryAxis = secondaryAxis;
             Joint.swapBodies = false;
 
-
-
             if (IsLineGrab)
             {
                 Joint.anchor = BaseLineGrabAnchor + _lineOffset;
-
-                //if (final)
-                {
-                    _startRotation = Quaternion.Inverse(Quaternion.Inverse(grabTransform.rotation) * transform.rotation);
-                    Joint.SetTargetRotationLocal(Quaternion.Inverse(Quaternion.Inverse(grabTransform.rotation) * transform.rotation), _startRotation);
-                }
-                //else if (PosableGrabPoint.LineInitialCanRotate && !_primaryGrabPointGrab)
-                //{
-                //    var handLine = grabTransform.InverseTransformDirection(LineGrabHandVector);
-                //    var grabbableLine = grabTransform.InverseTransformDirection(LineGrabVector);
-                //    var handLocal = Quaternion.FromToRotation(grabbableLine, handLine);
-
-                //    Joint.SetTargetRotationLocal(startRot * handLocal, startRot);
-                //}
-                //else
-                //{
-                //    Joint.SetTargetRotationLocal(startRot * JointRotation, startRot);
-                //}
+                _startRotation = Quaternion.Inverse(Quaternion.Inverse(grabTransform.rotation) * transform.rotation);
+                Joint.SetTargetRotationLocal(Quaternion.Inverse(Quaternion.Inverse(grabTransform.rotation) * transform.rotation), _startRotation);
             }
             else
             {
                 Joint.SetTargetRotationLocal(startRot * JointRotation, startRot);
             }
 
-
-
             grabbable.AddJoint(Joint, this);
-
 
             HVRJointSettings settings;
             if (grabbable.JointOverride)
@@ -2621,7 +2601,6 @@ namespace HurricaneVR.Framework.Core.Grabbers
             _primaryGrabPointGrab = false;
             _socketGrab = false;
             _lineOffset = Vector3.zero;
-            PullingGrabbable = false;
             _currentGrabControl = HVRGrabControls.GripOrTrigger;
             _grabbableControl = HVRGrabControls.GripOrTrigger;
             IsLineGrab = false;
@@ -2634,6 +2613,7 @@ namespace HurricaneVR.Framework.Core.Grabbers
 
             if (ApplyHandLayer) HandModel.SetLayerRecursive(HVRLayers.Hand);
             if (TempGrabPoint) Destroy(TempGrabPoint.gameObject);
+            CleanupPull();
 
             IsClimbing = false;
 
@@ -2871,6 +2851,9 @@ namespace HurricaneVR.Framework.Core.Grabbers
 
         private readonly Dictionary<Transform, int> _layerCache = new Dictionary<Transform, int>();
         private readonly List<Transform> _layerKeys = new List<Transform>(20);
+        private ConfigurableJoint PullJoint;
+        private Vector3 _startPos;
+        private Quaternion _startRot;
 
         private void DynamicGrab()
         {
@@ -3189,7 +3172,7 @@ namespace HurricaneVR.Framework.Core.Grabbers
 
 
                 if (CollisionHandler)
-                    this.ExecuteNextUpdate(() => CollisionHandler.SweepHand(this, grabbable));
+                    this.ExecuteNextUpdate(() => CollisionHandler.Sweep(this));
             }
             finally
             {

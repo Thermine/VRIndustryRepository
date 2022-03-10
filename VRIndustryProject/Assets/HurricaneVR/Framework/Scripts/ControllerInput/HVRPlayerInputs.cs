@@ -8,6 +8,10 @@ using UnityEngine.InputSystem;
 
 namespace HurricaneVR.Framework.ControllerInput
 {
+    /// <summary>
+    /// Used by the player controller, teleporter, and hand grabbing systems to drive their actions.
+    /// Subclass and override the virtual methods if you wish to customize inputs per device.
+    /// </summary>
     public class HVRPlayerInputs : MonoBehaviour
     {
         [Header("Grab Settings")]

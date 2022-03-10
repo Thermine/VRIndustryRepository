@@ -15,7 +15,7 @@ MonoBehaviour:
   LocalEditorRootDirectory: Assets\HurricaneVR\Framework\Editor\
   LocalRootDirectory: Assets\HurricaneVR\Framework\
   LocalResourcesDirectory: Assets\HurricaneVR\Framework\Resources\
-  LocalReferencePoseDirectory: Assets\HurricaneVR\Framework\Resources\ReferencePoses\
+  LocalReferencePoseDirectory: 
   LocalRuntimePosesDirectory: Assets\HurricaneVR\Framework\Resources\RuntimePoses\
   LocalPosesDirectory: 
   AutoApplyGrabbableLayer: 1
@@ -45,7 +45,7 @@ MonoBehaviour:
   LineGrabSettings: {fileID: 11400000, guid: 203d545f2b6cc724aa3a0d6e4fafd082, type: 2}
   VerboseGrabbableEvents: 0
   VerboseHandGrabberEvents: 0
+  DisableHaptics: 0
   ChosePosesDirectory: Choose Pose Directory
-  ChoseReferencePosesDirectory: Choose Reference Poses Directory
   ChoseRunTimePosesDirectory: Choose RunTime Poses Directory
   ReloadGlobals: Reload Globals

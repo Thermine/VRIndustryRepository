@@ -12,31 +12,80 @@ using UnityEngine.Events;
 
 namespace HurricaneVR.Framework.Core.Player
 {
+    /// <summary>
+    /// Handles moving hands and the objects they are holding after a teleport with post collision handling behaviours. 
+    /// </summary>
     [RequireComponent(typeof(HVRTeleporter))]
     public class HVRTeleportCollisonHandler : MonoBehaviour
     {
+        /// <summary>
+        /// BoundingBoxSweep: Uses bounding box of all grabbable colliders to to find a safe position between the controller and the ResetTarget transform.
+        /// DisableCollision: Disables the held object's collision until it's free and clear, releasing the object is prevented until clear.
+        /// </summary>
+        [Tooltip("Post teleport collision handling")]
         public AfterTeleportOptions AfterTeleportOption = AfterTeleportOptions.BoundingBoxSweep;
+
+        /// <summary>
+        /// After teleporting, checks are used against these layers to determine if hand's and held objects are stuck and need to be backed out safely.
+        /// </summary>
+        [Tooltip("Layers that hands and objects can hit after a teleport.")]
         public LayerMask LayerMask;
 
+        /// <summary>
+        /// Used when AfterTeleportOption is set to DisableCollision, this amount of time must be past after a teleport before checking if the object is stuck.
+        /// </summary>
         [Tooltip("Time required after teleporting to invoke stuck / unstuck events")]
         public float StuckTime = .1f;
 
-        [Header("Required Objects")]
+        /// <summary>
+        /// After the hand sweeps from the ResetTarget toward the desired target, the hand will back out when holding an object until it's clear.
+        /// This defines the amount of each backout incremenet before checking the next Physics.Overlap
+        /// </summary>
+        [Tooltip("When backing out held objects, how granular should each move be when checking for overlap.")]
+        public float BackoutIncrement = .05f;
 
+        /// <summary>
+        /// This tranform's position is used as the starting point to safely move the hand toward's the controller after a teleport.
+        /// </summary>
+        [Header("Required Objects")]
         [Tooltip("After teleporting, the hand will start at this position and sweep towards the final hand destination")]
         public Transform ResetTarget;
 
+        /// <summary>
+        /// The Left HVRHandGrabber component.
+        /// </summary>
         public HVRHandGrabber LeftHand;
+
+        /// <summary>
+        /// The Left Physics Hand component.
+        /// </summary>
         public HVRJointHand LeftJointHand;
 
+        /// <summary>
+        /// The Right HVRHandGrabber component.
+        /// </summary>
         public HVRHandGrabber RightHand;
+
+        /// <summary>
+        /// The Right Physics Hand component.
+        /// </summary>
         public HVRJointHand RightJointHand;
 
+        /// <summary>
+        /// Drops gizmos lines of the post teleport sweep and bounding box positions to debug issues with collision handling
+        /// </summary>
         [Header("Debugging")]
         public bool VerboseDebug;
 
+        /// <summary>
+        /// Invoked if a held object is overlapping colliders after a teleport when DisableCollision is chosen.
+        /// </summary>
         [Header("Events")]
         public GrabbableStuck GrabbableStuck = new GrabbableStuck();
+
+        /// <summary>
+        /// Invoked once a previously stuck object is clear.
+        /// </summary>
         public GrabbableStuck GrabbableUnstuck = new GrabbableStuck();
 
         public List<GrabbableCollisionTracker> LeftTrackers = new List<GrabbableCollisionTracker>();
@@ -99,6 +148,435 @@ namespace HurricaneVR.Framework.Core.Player
             CheckTrackers(RightTrackers, RightHand);
             CheckTrackers(LeftTrackers, LeftHand);
         }
+
+        #region Public
+
+        /// <summary>
+        /// Called before teleporting to snapshot the hand and held object state, and the position of the player
+        /// </summary>
+        /// <param name="position">Player controller position before teleporting</param>
+        public virtual void BeforeTeleport(Vector3 position)
+        {
+            _teleportStart = position;
+
+            leftGrabbable = null;
+            rightGrabbable = null;
+
+            if (LeftHand && LeftHand.GrabbedTarget)
+            {
+                leftGrabbable = LeftHand.GrabbedTarget;
+                if (leftGrabbable.MasterGrabbable) leftGrabbable = leftGrabbable.MasterGrabbable;
+            }
+
+            if (RightHand && RightHand.GrabbedTarget)
+            {
+                rightGrabbable = RightHand.GrabbedTarget;
+                if (rightGrabbable.MasterGrabbable) rightGrabbable = rightGrabbable.MasterGrabbable;
+            }
+
+            if (leftGrabbable && leftGrabbable.TryGetComponent<HVRTeleportOptions>(out var o) && o.BeforeTeleportOption == BeforeTeleportOptions.DropsGrabbable)
+            {
+                leftGrabbable.ForceRelease();
+                leftGrabbable = null;
+            }
+
+            if (rightGrabbable && rightGrabbable != leftGrabbable && rightGrabbable.TryGetComponent(out o) && o.BeforeTeleportOption == BeforeTeleportOptions.DropsGrabbable)
+            {
+                rightGrabbable.ForceRelease();
+                rightGrabbable = null;
+            }
+
+            if (leftGrabbable && leftGrabbable.Rigidbody)
+            {
+                leftGrabbable.Rigidbody.detectCollisions = false;
+            }
+
+            if (rightGrabbable && rightGrabbable.Rigidbody)
+            {
+                rightGrabbable.Rigidbody.detectCollisions = false;
+            }
+
+            if (LeftHand)
+            {
+                LeftHand.CanRelease = false;
+            }
+
+            if (RightHand)
+            {
+                RightHand.CanRelease = false;
+            }
+
+            if (LeftJointHand)
+            {
+                LeftJointHand.Disable();
+                LeftJointHand.RigidBody.detectCollisions = false;
+            }
+
+            if (RightJointHand)
+            {
+                RightJointHand.Disable();
+                RightJointHand.RigidBody.detectCollisions = false;
+            }
+
+            LeftHand.Rigidbody.velocity = Vector3.zero;
+            RightHand.Rigidbody.velocity = Vector3.zero;
+
+            _previousPosition = position;
+        }
+
+        /// <summary>
+        /// Call while a teleport is in progress.
+        /// </summary>
+        /// <param name="position">Player controller updated position</param>
+        public virtual void TeleportUpdate(Vector3 position)
+        {
+            _teleportEnd = position;
+            var delta = position - _previousPosition;
+
+            if (leftGrabbable && leftGrabbable.Rigidbody)
+            {
+                leftGrabbable.transform.position += delta;
+                leftGrabbable.Rigidbody.position = leftGrabbable.transform.position;
+            }
+
+            if (rightGrabbable && rightGrabbable.Rigidbody && rightGrabbable != leftGrabbable)
+            {
+                rightGrabbable.transform.position += delta;
+                rightGrabbable.Rigidbody.position = rightGrabbable.transform.position;
+            }
+
+            if (LeftJointHand)
+            {
+                LeftJointHand.transform.position += delta;
+                LeftJointHand.RigidBody.position = LeftJointHand.RigidBody.position;
+            }
+
+            if (RightJointHand)
+            {
+                RightJointHand.transform.position += delta;
+                RightJointHand.RigidBody.position = RightJointHand.RigidBody.position;
+            }
+
+            //SweepHand(LeftHand, leftGrabbable);
+            //SweepHand(RightHand, rightGrabbable);
+
+            _previousPosition = position;
+        }
+
+        /// <summary>
+        /// Call after a teleport sequence has completed. Post teleport collision behaviour sequence will execute.
+        /// </summary>
+        public virtual void AfterTeleport()
+        {
+            if (LeftHand)
+            {
+                LeftHand.CanRelease = true;
+            }
+
+            if (RightHand)
+            {
+                RightHand.CanRelease = true;
+            }
+
+            if (leftGrabbable && leftGrabbable.Rigidbody && LeftTrackers.Count == 0)
+            {
+                leftGrabbable.Rigidbody.detectCollisions = true;
+            }
+
+            if (LeftHand && leftGrabbable && leftGrabbable.Rigidbody)
+            {
+                var leftOption = GetAfterOption(leftGrabbable, out var o);
+
+                if (leftOption == AfterTeleportOptions.DisableCollision && LeftTrackers.Count == 0)
+                {
+                    var tracker = new GrabbableCollisionTracker(leftGrabbable);
+                    LeftTrackers.Add(tracker);
+                    LeftHand.CanRelease = false;
+                }
+            }
+
+            if (rightGrabbable && rightGrabbable.Rigidbody && RightTrackers.Count == 0)
+            {
+                rightGrabbable.Rigidbody.detectCollisions = true;
+            }
+
+            if (RightHand && rightGrabbable && rightGrabbable.Rigidbody)
+            {
+                var rightOption = GetAfterOption(rightGrabbable, out var o);
+
+                if (rightOption == AfterTeleportOptions.DisableCollision && RightTrackers.Count == 0)
+                {
+                    var tracker = new GrabbableCollisionTracker(rightGrabbable);
+                    RightTrackers.Add(tracker);
+                    RightHand.CanRelease = false;
+                }
+            }
+
+            if (LeftHand)
+            {
+                LeftJointHand.RigidBody.detectCollisions = true;
+            }
+
+            if (RightJointHand)
+            {
+                RightJointHand.RigidBody.detectCollisions = true;
+            }
+
+
+
+            StartCoroutine(AfterFixedUpdate());
+
+        }
+
+
+        /// <summary>
+        /// Sweeps the hand and held grabbable from the ResetTarget towards the hand's current position, then backs out in the opposite direction until clear.
+        /// </summary>
+        public virtual void Sweep(HVRHandGrabber hand)
+        {
+            SweepHand(hand, hand.GrabbedTarget, hand.Rigidbody.position);
+        }
+
+        /// <summary>
+        /// Sweeps the hand and held grabbable from the ResetTarget towards the target position, then backs out in the opposite direction until clear.
+        /// </summary>
+        /// /// <param name="target">Position that the hand will sweep toward.</param>
+        public virtual void Sweep(HVRHandGrabber hand, Vector3 target)
+        {
+            SweepHand(hand, hand.GrabbedTarget, target);
+        }
+
+
+        #endregion 
+
+        #region Protected
+
+        /// <summary>
+        /// Sweeps the hand and grabbable from the ResetTarget towards the target position, then backs out in the opposite direction until clear.
+        /// </summary>
+        /// <param name="target">Position that the hand will sweep toward.</param>
+        protected virtual void SweepHand(HVRHandGrabber hand, HVRGrabbable g, Vector3 target)
+        {
+            if (!g || !g.Rigidbody)
+            {
+                SweepHand(hand, target);
+                return;
+            }
+
+            if (g.MasterGrabbable && g.MasterGrabbable.Rigidbody)
+                g = g.MasterGrabbable;
+
+            GetAfterOption(g, out var options);
+            SweepHandAndGrabbable(hand, g, ResetTarget.position - target, options, target);
+        }
+
+
+        /// <summary>
+        /// Sweeps the hand from the ResetTarget towards the target position, then backs out in the opposite direction until clear.
+        /// </summary>
+        /// <param name="target">Position that the hand will sweep toward.</param>
+        protected virtual void SweepHand(HVRHandGrabber hand, Vector3 target)
+        {
+            var origin = ResetTarget ? ResetTarget : transform;
+            var direction = (target - origin.position).normalized;
+
+            hand.Rigidbody.position = origin.position;
+
+            var bounds = hand.Rigidbody.GetColliderBounds();
+            var maxSide = Mathf.Max(bounds.size.x, bounds.size.y, bounds.size.z);
+            var start = bounds.center;
+            var length = Vector3.Distance(target, start);
+            var collided = false;
+            var backoutDistance = length;
+            //sweep test seems to collide with concave environment colliders where box cast doesn't?
+            //if (hand.Rigidbody.SweepTest(direction, out var hit, length, QueryTriggerInteraction.Ignore))
+
+            var count = Physics.BoxCastNonAlloc(start, bounds.extents, direction, _hits, Quaternion.identity, length, LayerMask, QueryTriggerInteraction.Ignore);
+
+            if (count > 0)
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    if (IgnoreCollider(_hits[i].collider, hand, hand.GrabbedTarget)) continue;
+                    collided = true;
+                    if (VerboseDebug) Debug.Log($"Collided: {_hits[i].collider.name}");
+                    break;
+                }
+
+                if (collided)
+                {
+                    var distance = float.MaxValue;
+
+                    for (int i = 0; i < count; i++)
+                    {
+                        if (_hits[i].distance < distance) distance = _hits[i].distance;
+                    }
+
+                    if (distance < .001f) distance = maxSide;
+
+                    hand.Rigidbody.position = start + direction * (distance);
+                    hand.transform.position = hand.Rigidbody.position;
+                    backoutDistance = distance;
+
+                    //var sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                    //sphere.transform.localScale = new Vector3(.05f, .05f, .05f);
+                    //sphere.transform.position = start + direction * distance;
+                    //Destroy(sphere.GetComponent<SphereCollider>());
+
+                    //var box = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    //box.transform.localScale = new Vector3(.05f, .05f, .05f);
+                    //box.transform.position = start;
+                    //Destroy(box.GetComponent<BoxCollider>());
+
+                    if (VerboseDebug) MakeBox("Collided", bounds.size, start + direction * distance, hand);
+                }
+            }
+
+            if (!collided)
+            {
+                hand.transform.position = hand.Rigidbody.position = target;
+            }
+
+            bounds = hand.Rigidbody.GetColliderBounds();
+
+            if (VerboseDebug) DrawSweepLines(hand, start, direction, length);
+            if (VerboseDebug) CastEnd(hand, bounds, start, direction, length);
+
+            if (!CheckOverlap(hand, bounds, bounds.center))
+                return;
+
+            //backout after forward sweep
+
+
+
+            var offset = Vector3.zero;
+
+            for (var d = 0f; d < backoutDistance; d += .05f)
+            {
+                offset = -direction * d;
+
+                if (VerboseDebug) MakeBox("unstucking " + d, bounds.size, bounds.center + offset, hand);
+
+                if (!CheckOverlap(hand, bounds, bounds.center + offset))
+                {
+                    break;
+                }
+            }
+
+            hand.Rigidbody.position += offset;
+            hand.transform.position = hand.Rigidbody.position;
+        }
+
+        protected virtual IEnumerator AfterFixedUpdate()
+        {
+            yield return new WaitForFixedUpdate();
+
+            var lgPos = Vector3.zero;
+            var rgPos = Vector3.zero;
+            var lgRot = Quaternion.identity;
+            var rgRot = Quaternion.identity;
+
+            if (leftGrabbable) LeftJointHand.transform.GetRelativeValues(leftGrabbable.transform, out lgPos, out lgRot);
+            if (rightGrabbable) RightJointHand.transform.GetRelativeValues(rightGrabbable.transform, out rgPos, out rgRot);
+
+            LeftJointHand.RigidBody.position = LeftJointHand.Target.position;
+            RightJointHand.RigidBody.position = RightJointHand.Target.position;
+
+            if (leftGrabbable)
+            {
+                leftGrabbable.transform.SetPositionAndRotation(
+                    LeftJointHand.transform.TransformPoint(lgPos),
+                    LeftJointHand.transform.rotation * lgRot);
+                if (leftGrabbable.Rigidbody) leftGrabbable.Rigidbody.velocity = Vector3.zero;
+            }
+
+            if (rightGrabbable)
+            {
+                rightGrabbable.transform.SetPositionAndRotation(
+                    RightJointHand.transform.TransformPoint(rgPos),
+                    RightJointHand.transform.rotation * rgRot);
+                if (rightGrabbable.Rigidbody) rightGrabbable.Rigidbody.velocity = Vector3.zero;
+            }
+
+            Physics.SyncTransforms();
+
+            LeftHand.Rigidbody.velocity = Vector3.zero;
+            RightHand.Rigidbody.velocity = Vector3.zero;
+
+            LeftJointHand.Enable();
+            RightJointHand.Enable();
+
+            var direction = (_teleportStart - _teleportEnd).normalized;
+            direction.y = 0f;
+
+            var pos = LeftHand.transform.position;
+
+            var offset = Vector3.zero;
+            if (leftGrabbable) offset = leftGrabbable.transform.InverseTransformPoint(RightHand.transform.position);
+
+            PostTeleportSweep(LeftHand, leftGrabbable, direction);
+
+            if (leftGrabbable && leftGrabbable == rightGrabbable)
+            {
+                RightHand.transform.position = leftGrabbable.transform.TransformPoint(offset);
+                RightHand.Rigidbody.position = RightHand.transform.position;
+            }
+            else
+            {
+                PostTeleportSweep(RightHand, rightGrabbable, direction);
+            }
+
+
+            leftGrabbable = null;
+            rightGrabbable = null;
+
+        }
+
+        /// <summary>
+        /// Handles sweeping the hand and grabbable after a teleport sequence.
+        /// </summary>
+        /// <param name="backoutDirection">Direction to reverse the grabbable if it's overlapping something after teleporting.</param>
+        protected virtual void PostTeleportSweep(HVRHandGrabber hand, HVRGrabbable g, Vector3 backoutDirection)
+        {
+            if (!hand) return;
+            if (!g || !g.Rigidbody)
+            {
+                SweepHand(hand, hand.Rigidbody.position);
+                return;
+            }
+
+            if (g.MasterGrabbable && g.MasterGrabbable.Rigidbody)
+                g = g.MasterGrabbable;
+
+            var option = GetAfterOption(g, out var options);
+
+            if (option == AfterTeleportOptions.BoundingBoxSweep)
+            {
+                SweepHandAndGrabbable(hand, g, backoutDirection, options, hand.Rigidbody.position);
+                return;
+            }
+
+            //DisableCollision only affects the held object, sweep the hand to see if it collides with something
+            SweepHand(hand, hand.Rigidbody.position);
+        }
+
+        /// <summary>
+        /// Determine if the provided collider should be ignored when doing an overlap check.
+        /// </summary>
+        /// <param name="grabbable">The grabbable that is being tested for overlapping other geometry</param>
+        /// <returns>Returns true if the provided collider should be ignored</returns>
+        protected virtual bool IgnoreCollider(Collider c, HVRHandGrabber hand, HVRGrabbable grabbable)
+        {
+            if (grabbable && grabbable.HasCollider(c)) return true;
+
+            var other = GetOtherHand(hand);
+
+            return other && other.GrabbedTarget && other.GrabbedTarget.HasCollider(c);
+        }
+
+        #endregion 
+
+        #region Private
 
         private void CheckTrackers(List<GrabbableCollisionTracker> trackers, HVRHandGrabber hand)
         {
@@ -185,244 +663,15 @@ namespace HurricaneVR.Framework.Core.Player
             return false;
         }
 
-
-        public virtual void BeforeTeleport(Vector3 position)
-        {
-            _teleportStart = position;
-
-            leftGrabbable = null;
-            rightGrabbable = null;
-
-            if (LeftHand && LeftHand.GrabbedTarget)
-            {
-                leftGrabbable = LeftHand.GrabbedTarget;
-                if (leftGrabbable.MasterGrabbable) leftGrabbable = leftGrabbable.MasterGrabbable;
-            }
-
-            if (RightHand && RightHand.GrabbedTarget)
-            {
-                rightGrabbable = RightHand.GrabbedTarget;
-                if (rightGrabbable.MasterGrabbable) rightGrabbable = rightGrabbable.MasterGrabbable;
-            }
-
-            if (leftGrabbable && leftGrabbable.TryGetComponent<HVRTeleportOptions>(out var o) && o.BeforeTeleportOption == BeforeTeleportOptions.DropsGrabbable)
-            {
-                leftGrabbable.ForceRelease();
-                leftGrabbable = null;
-            }
-
-            if (rightGrabbable && rightGrabbable != leftGrabbable && rightGrabbable.TryGetComponent(out o) && o.BeforeTeleportOption == BeforeTeleportOptions.DropsGrabbable)
-            {
-                rightGrabbable.ForceRelease();
-                rightGrabbable = null;
-            }
-
-            if (leftGrabbable && leftGrabbable.Rigidbody)
-            {
-                leftGrabbable.Rigidbody.detectCollisions = false;
-            }
-
-            if (rightGrabbable && rightGrabbable.Rigidbody)
-            {
-                rightGrabbable.Rigidbody.detectCollisions = false;
-            }
-
-            if (LeftHand)
-            {
-                LeftHand.CanRelease = false;
-            }
-
-            if (RightHand)
-            {
-                RightHand.CanRelease = false;
-            }
-
-            if (LeftJointHand)
-            {
-                LeftJointHand.Disable();
-                LeftJointHand.RigidBody.detectCollisions = false;
-            }
-
-            if (RightJointHand)
-            {
-                RightJointHand.Disable();
-                RightJointHand.RigidBody.detectCollisions = false;
-            }
-
-            LeftHand.Rigidbody.velocity = Vector3.zero;
-            RightHand.Rigidbody.velocity = Vector3.zero;
-
-            _previousPosition = position;
-        }
-
-        public virtual void TeleportUpdate(Vector3 position)
-        {
-            _teleportEnd = position;
-            var delta = position - _previousPosition;
-
-            if (leftGrabbable && leftGrabbable.Rigidbody)
-            {
-                leftGrabbable.transform.position += delta;
-                leftGrabbable.Rigidbody.position = leftGrabbable.transform.position;
-            }
-
-            if (rightGrabbable && rightGrabbable.Rigidbody && rightGrabbable != leftGrabbable)
-            {
-                rightGrabbable.transform.position += delta;
-                rightGrabbable.Rigidbody.position = rightGrabbable.transform.position;
-            }
-
-            if (LeftJointHand)
-            {
-                LeftJointHand.transform.position += delta;
-                LeftJointHand.RigidBody.position = LeftJointHand.RigidBody.position;
-            }
-
-            if (RightJointHand)
-            {
-                RightJointHand.transform.position += delta;
-                RightJointHand.RigidBody.position = RightJointHand.RigidBody.position;
-            }
-
-            //SweepHand(LeftHand, leftGrabbable);
-            //SweepHand(RightHand, rightGrabbable);
-
-            _previousPosition = position;
-        }
-
-        public virtual void AfterTeleport()
-        {
-            if (LeftHand)
-            {
-                LeftHand.CanRelease = true;
-            }
-
-            if (RightHand)
-            {
-                RightHand.CanRelease = true;
-            }
-
-            if (leftGrabbable && leftGrabbable.Rigidbody && LeftTrackers.Count == 0)
-            {
-                leftGrabbable.Rigidbody.detectCollisions = true;
-            }
-
-            if (LeftHand && leftGrabbable && leftGrabbable.Rigidbody)
-            {
-                var leftOption = GetAfterOption(leftGrabbable, out var o);
-
-                if (leftOption == AfterTeleportOptions.DisableCollision && LeftTrackers.Count == 0)
-                {
-                    var tracker = new GrabbableCollisionTracker(leftGrabbable);
-                    LeftTrackers.Add(tracker);
-                    LeftHand.CanRelease = false;
-                }
-            }
-
-            if (rightGrabbable && rightGrabbable.Rigidbody && RightTrackers.Count == 0)
-            {
-                rightGrabbable.Rigidbody.detectCollisions = true;
-            }
-
-            if (RightHand && rightGrabbable && rightGrabbable.Rigidbody)
-            {
-                var rightOption = GetAfterOption(rightGrabbable, out var o);
-
-                if (rightOption == AfterTeleportOptions.DisableCollision && RightTrackers.Count == 0)
-                {
-                    var tracker = new GrabbableCollisionTracker(rightGrabbable);
-                    RightTrackers.Add(tracker);
-                    RightHand.CanRelease = false;
-                }
-            }
-
-            if (LeftHand)
-            {
-                LeftJointHand.RigidBody.detectCollisions = true;
-            }
-
-            if (RightJointHand)
-            {
-                RightJointHand.RigidBody.detectCollisions = true;
-            }
-
-
-
-            StartCoroutine(AfterFixedUpdate());
-
-        }
-
-        protected virtual IEnumerator AfterFixedUpdate()
-        {
-            yield return new WaitForFixedUpdate();
-
-            LeftJointHand.RigidBody.position = LeftJointHand.Target.position;
-            RightJointHand.RigidBody.position = RightJointHand.Target.position;
-
-            LeftHand.Rigidbody.velocity = Vector3.zero;
-            RightHand.Rigidbody.velocity = Vector3.zero;
-
-            var direction = (_teleportStart - _teleportEnd).normalized;
-            direction.y = 0f;
-
-            var pos = LeftHand.transform.position;
-
-            var offset = Vector3.zero;
-            if (leftGrabbable) offset = leftGrabbable.transform.InverseTransformPoint(RightHand.transform.position);
-
-            PostTeleportSweep(LeftHand, leftGrabbable, direction);
-
-            if (leftGrabbable && leftGrabbable == rightGrabbable)
-            {
-                RightHand.transform.position = leftGrabbable.transform.TransformPoint(offset);
-                RightHand.Rigidbody.position = RightHand.transform.position;
-            }
-            else
-            {
-                PostTeleportSweep(RightHand, rightGrabbable, direction);
-            }
-
-            LeftJointHand.Enable();
-            RightJointHand.Enable();
-
-            leftGrabbable = null;
-            rightGrabbable = null;
-
-        }
-
-        protected virtual void PostTeleportSweep(HVRHandGrabber hand, HVRGrabbable g, Vector3 direction)
-        {
-            if (!hand) return;
-            if (!g || !g.Rigidbody)
-            {
-                SweepHand(hand);
-                return;
-            }
-
-            if (g.MasterGrabbable && g.MasterGrabbable.Rigidbody)
-                g = g.MasterGrabbable;
-
-            var option = GetAfterOption(g, out var options);
-
-            if (option == AfterTeleportOptions.BoundingBoxSweep)
-            {
-                Sweep(hand, g, direction, options);
-                return;
-            }
-
-            //hit with hand when disabling collision
-            SweepHand(hand);
-        }
-
-        private void Sweep(HVRHandGrabber hand, HVRGrabbable g, Vector3 direction, HVRTeleportOptions options)
+        private void SweepHandAndGrabbable(HVRHandGrabber hand, HVRGrabbable g, Vector3 backoutDirection, HVRTeleportOptions options, Vector3 target)
         {
             var grabbableOffset = g.Rigidbody.position - hand.Rigidbody.position;
 
-            SweepHand(hand);
+            SweepHand(hand, target);
 
             g.Rigidbody.position = g.transform.position = hand.Rigidbody.position + grabbableOffset;
 
-            Backout(hand, g, direction, options);
+            Backout(hand, g, backoutDirection, options);
         }
 
         private void Backout(HVRHandGrabber hand, HVRGrabbable g, Vector3 direction, HVRTeleportOptions options)
@@ -439,8 +688,21 @@ namespace HurricaneVR.Framework.Core.Player
                     bounds.Encapsulate(g.Colliders.GetColliderBounds());
             }
 
-            Backout(hand, bounds, g, direction, out var offset);
+            var offset = Vector3.zero;
 
+            if (BackoutIncrement < .0001f) BackoutIncrement = .05f;
+
+            for (var d = 0f; d < Mathf.Max(bounds.size.x, bounds.size.y, bounds.size.z) * 2f; d += BackoutIncrement)
+            {
+                offset = direction * d;
+
+                if (VerboseDebug) MakeBox("backup " + d, bounds.size, bounds.center + offset, hand);
+
+                if (!CheckOverlap(hand, bounds, bounds.center + offset))
+                {
+                    break;
+                }
+            }
 
             g.transform.position = g.Rigidbody.position += offset;
             hand.transform.position = hand.Rigidbody.position += offset;
@@ -463,150 +725,6 @@ namespace HurricaneVR.Framework.Core.Player
             }
         }
 
-        public virtual void SweepHand(HVRHandGrabber hand, HVRGrabbable g, Vector3 start)
-        {
-            if (!g || !g.Rigidbody)
-            {
-                SweepHand(hand);
-                return;
-            }
-
-            if (g.MasterGrabbable && g.MasterGrabbable.Rigidbody)
-                g = g.MasterGrabbable;
-
-            GetAfterOption(g, out var options);
-            Sweep(hand, g, ResetTarget.position - start, options);
-        }
-
-        public virtual void SweepHand(HVRHandGrabber hand, HVRGrabbable g)
-        {
-            SweepHand(hand, g, hand.Rigidbody.position);
-        }
-
-        protected virtual void Backout(HVRHandGrabber hand, Bounds bounds, HVRGrabbable grabbable, Vector3 direction, out Vector3 offset)
-        {
-            offset = Vector3.zero;
-
-            for (var d = 0f; d < Mathf.Max(bounds.size.x, bounds.size.y, bounds.size.z) * 2f; d += .05f)
-            {
-                offset = direction * d;
-
-                if (VerboseDebug) MakeBox("backup " + d, bounds.size, bounds.center + offset, hand);
-
-                if (!CheckOverlap(hand, bounds, bounds.center + offset))
-                {
-                    break;
-                }
-            }
-        }
-
-        protected virtual bool IgnoreCollider(Collider c, HVRHandGrabber hand, HVRGrabbable grabbable)
-        {
-            if (grabbable && grabbable.HasCollider(c)) return true;
-
-            var other = GetOtherHand(hand);
-
-            return other && other.GrabbedTarget && other.GrabbedTarget.HasCollider(c);
-        }
-
-        public virtual void SweepHand(HVRHandGrabber hand)
-        {
-            var target = hand.Rigidbody.position;
-            var origin = ResetTarget;
-            if (!origin)
-            {
-                origin = this.transform;
-            }
-            var direction = (target - origin.position).normalized;
-
-
-            hand.Rigidbody.position = origin.position;
-
-            var bounds = hand.Rigidbody.GetColliderBounds();
-            var maxSide = Mathf.Max(bounds.size.x, bounds.size.y, bounds.size.z);
-            var start = bounds.center;
-            var length = Vector3.Distance(target, start);
-            var collided = false;
-            var backoutDistance = length;
-            //sweep test seems to collide with concave environment colliders where box cast doesn't?
-            //if (hand.Rigidbody.SweepTest(direction, out var hit, length, QueryTriggerInteraction.Ignore))
-
-            var count = Physics.BoxCastNonAlloc(start, bounds.extents, direction, _hits, Quaternion.identity, length, LayerMask, QueryTriggerInteraction.Ignore);
-
-            if (count > 0)
-            {
-                for (int i = 0; i < count; i++)
-                {
-                    if (IgnoreCollider(_hits[i].collider, hand, hand.GrabbedTarget)) continue;
-                    collided = true;
-                    if (VerboseDebug) Debug.Log($"Collided: {_hits[i].collider.name}");
-                    break;
-                }
-
-                if (collided)
-                {
-                    var distance = float.MaxValue;
-
-                    for (int i = 0; i < count; i++)
-                    {
-                        if (_hits[i].distance < distance) distance = _hits[i].distance;
-                    }
-
-                    if (distance < .001f) distance = maxSide;
-
-                    hand.Rigidbody.position = start + direction * (distance);
-                    hand.transform.position = hand.Rigidbody.position;
-                    backoutDistance = distance;
-
-                    //var sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                    //sphere.transform.localScale = new Vector3(.05f, .05f, .05f);
-                    //sphere.transform.position = start + direction * distance;
-                    //Destroy(sphere.GetComponent<SphereCollider>());
-
-                    //var box = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                    //box.transform.localScale = new Vector3(.05f, .05f, .05f);
-                    //box.transform.position = start;
-                    //Destroy(box.GetComponent<BoxCollider>());
-
-                    if (VerboseDebug) MakeBox("Collided", bounds.size, start + direction * distance, hand);
-                }
-            }
-
-            if (!collided)
-            {
-                hand.transform.position = hand.Rigidbody.position = target;
-            }
-
-            bounds = hand.Rigidbody.GetColliderBounds();
-
-            if (VerboseDebug) DrawSweepLines(hand, start, direction, length);
-            if (VerboseDebug) CastEnd(hand, bounds, start, direction, length);
-
-            if (!CheckOverlap(hand, bounds, bounds.center))
-                return;
-
-            //backout after forward sweep
-
-       
-
-            var offset = Vector3.zero;
-
-            for (var d = 0f; d < backoutDistance; d += .05f)
-            {
-                offset = -direction * d;
-
-                if (VerboseDebug) MakeBox("unstucking " + d, bounds.size, bounds.center + offset, hand);
-
-                if (!CheckOverlap(hand, bounds, bounds.center + offset))
-                {
-                    break;
-                }
-            }
-
-            hand.Rigidbody.position += offset;
-            hand.transform.position = hand.Rigidbody.position;
-        }
-
         private bool CheckOverlap(HVRHandGrabber hand, Bounds bounds, Vector3 center)
         {
             var overlaps = Physics.OverlapBoxNonAlloc(center, bounds.extents, _colliders, Quaternion.identity, LayerMask, QueryTriggerInteraction.Ignore);
@@ -615,7 +733,7 @@ namespace HurricaneVR.Framework.Core.Player
             for (int i = 0; i < overlaps; i++)
             {
                 if (IgnoreCollider(_colliders[i], hand, hand.GrabbedTarget)) continue;
-                if(VerboseDebug) Debug.Log($"Collided: {_colliders[i].name}");
+                if (VerboseDebug) Debug.Log($"CheckOverlap: {_colliders[i].name}");
                 return true;
             }
 
@@ -637,6 +755,9 @@ namespace HurricaneVR.Framework.Core.Player
 
             return options.AfterTeleportOption;
         }
+
+        #endregion
+      
 
         #region Debugging
 

@@ -60,7 +60,7 @@ namespace HurricaneVR.Framework.Core.Grabbers
         public bool CanRemoveGrabbable = true;
 
         [Tooltip("Scales the grabbable down to fit based on Size and the model bounds.")]
-        public bool ScaleGrabbable = true;
+        public bool ScaleGrabbable;
 
         [Tooltip("Grabbable scales down to this size along its longest extent.")]
         public float Size;

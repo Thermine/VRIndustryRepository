@@ -80,6 +80,7 @@
     <Compile Include="Assets\Oculus\SampleFramework\Core\Video\Scripts\MoviePlayerSample.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportDestination.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\TrainButtonVisualController.cs" />
+    <Compile Include="Assets\Wristwatch\Scripts\RealClock.cs" />
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoHolster.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\GrabObject.cs" />
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoFullStabConfetti.cs" />
@@ -90,11 +91,13 @@
     <Compile Include="Assets\Oculus\SampleFramework\Core\DebugUI\Scripts\HandedInputSelector.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\DistanceGrab\Scripts\DistanceGrabbable.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\Utils\Pose.cs" />
+    <Compile Include="Assets\Ultimate 10 Plus Shaders\Shaders\Plexus\Plexus.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportInputHandlerHMD.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportInputHandler.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\DistanceGrab\Scripts\GrabManager.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\SpatialAnchor\Scripts\AnchorSession.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\CharacterCameraConstraint.cs" />
+    <Compile Include="Assets\TransformShader\ZombifyDEMO\ZombifyAmount.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\SpatialAnchor\Scripts\SpatialAnchorSession.cs" />
     <Compile Include="Assets\Oculus\Avatar\Samples\LocalAvatar\Scripts\GazeTargetSpawner.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTransitionWarp.cs" />
@@ -125,11 +128,13 @@
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Locomotion\Scripts\CharacterCapsule.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\LocomotionController.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTargetHandlerPhysical.cs" />
+    <Compile Include="Assets\Ultimate 10 Plus Shaders\Scripts\U10PS_DissolveOverTime.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\TrainTrack.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\DistanceGrab\Scripts\DistanceGrabber.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarLocalDriver.cs" />
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoHelper.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarBase.cs" />
+    <Compile Include="Assets\Ultimate 10 Plus Shaders\Scripts\U10PS_ExampleReview.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarAssetTexture.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\Interactable.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\TouchControllers\TouchController.cs" />
@@ -148,9 +153,9 @@
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoManualTeleport.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportAimHandlerLaser.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\PassthroughBrush.cs" />
-    <Compile Include="Assets\HurricaneVR\Framework\Integrations\Oculus\HVROculusManager.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\PassthroughController.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatar.cs" />
+    <Compile Include="Assets\Ultimate 10 Plus Shaders\Scripts\U10PS_MouseRotation.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarMaterialManager.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\ColliderZone.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Video\Scripts\MoviePlayerSampleControls.cs" />
@@ -209,6 +214,7 @@
     <Compile Include="Assets\Oculus\Avatar\Samples\SocialStarter\Assets\Scripts\RemotePlayer.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\SpatialAnchor\Scripts\Anchor.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\Tools\InteractableToolView.cs" />
+    <Compile Include="Assets\Ultimate 10 Plus Shaders\Scripts\U10PS_SnowOverTime.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\InteractableToolsInputRouter.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\ObjectManipulator.cs" />
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoGlassRotate.cs" />
@@ -243,10 +249,14 @@
     <None Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Shaders\XingLightShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\Oculus\Avatar\Resources\Materials\AvatarMaterialStateShader.cginc" />
+    <None Include="Assets\TransformShader\Shaders\Stain.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Shaders\ButtonGlow.shader" />
+    <None Include="Assets\Ultimate 10 Plus Shaders\Shaders\Edge Detection.shader" />
     <None Include="Assets\HurricaneVR\Framework\SFX\license.txt" />
     <None Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Materials\SelectivePassthrough.shader" />
+    <None Include="Assets\Ultimate 10 Plus Shaders\Shaders\Grass Sway.shader" />
+    <None Include="Assets\Ultimate 10 Plus Shaders\Shaders\Blur.shader" />
     <None Include="Assets\HurricaneVR\Third-Party Notices.txt" />
     <None Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Materials\SelectivePassthroughSoft.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
@@ -254,6 +264,7 @@
     <None Include="Assets\Oculus\Avatar\Resources\Materials\Version1.5\Avatar_Mobile_Loader.shader" />
     <None Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Shaders\GradientSkybox.shader" />
     <None Include="Assets\Oculus\Avatar\Resources\Materials\Version1.5\Avatar_Mobile_SingleComponent.shader" />
+    <None Include="Assets\Ultimate 10 Plus Shaders\Shaders\Plexus\Plexus.compute" />
     <None Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Materials\PassthroughLine.shader" />
     <None Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Materials\BackgroundColor.shader" />
     <None Include="Assets\Oculus\Avatar\Resources\Materials\AvatarSurfaceShader.shader" />
@@ -261,8 +272,8 @@
     <None Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Materials\FatFingers.shader" />
     <None Include="Assets\Oculus\Avatar\Resources\Materials\Expressive\Avatar_PC_SingleComponentExpressive.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\TransformShader\Shaders\UnityStandardConfig.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-    <None Include="Assets\HurricaneVR\Framework\VFX\ScreenFade.shader" />
     <None Include="Assets\HurricaneVR\TechDemo\Shaders\Hologram Simple.shader" />
     <None Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Shaders\OculusSampleTrainPropsShader.shader" />
     <None Include="Assets\Oculus\SampleFramework\Usage\DistanceGrab\Materials\ToyCubeWithOutline.shader" />
@@ -278,23 +289,32 @@
     <None Include="Assets\Oculus\Avatar\Samples\SocialStarter\README.txt" />
     <None Include="Assets\HurricaneVR\Framework\Models\OculusCustomHands\license.txt" />
     <None Include="Assets\Oculus\SampleFramework\Usage\OVROverlayCanvas\Shaders\UI Default Correct.shader" />
+    <None Include="Assets\Ultimate 10 Plus Shaders\Shaders\Depth Mask Edge Detection.shader" />
     <None Include="Assets\Oculus\SampleFramework\Core\CustomHands\Shaders\Hands_01.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\Oculus\Avatar\Resources\Materials\AvatarPBRV2Simple.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\Ultimate 10 Plus Shaders\Shaders\Ocean.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\Ultimate 10 Plus Shaders\Shaders\Dissolve.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\Ultimate 10 Plus Shaders\Shaders\Plasma.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\Oculus\Avatar\Resources\Materials\AvatarSurfaceShaderSelfOccluding.shader" />
+    <None Include="Assets\Ultimate 10 Plus Shaders\Shaders\Outline.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Ultimate 10 Plus Shaders\Shaders\Plexus\Plexus Line.shader" />
+    <None Include="Assets\Ultimate 10 Plus Shaders\Shaders\Snow.shader" />
     <None Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Shaders\OculusSampleAlphaHandOutline.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\HurricaneVR\Framework\VFX\ColumnGlow.shader" />
+    <None Include="Assets\Ultimate 10 Plus Shaders\Shaders\Lava3D.shader" />
+    <None Include="Assets\Ultimate 10 Plus Shaders\Shaders\Force Field.shader" />
     <None Include="Assets\HurricaneVR\Framework\Resources\HVRLatestReleaseNotes.txt" />
     <None Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Materials\GlowEffect.shader" />
-    <None Include="Assets\HurricaneVR\Framework\VFX\AlwaysVisibleShader.shader" />
+    <None Include="Assets\Wristwatch\Shaders\AO.shader" />
+    <None Include="Assets\TransformShader\Shaders\UnityStandardCoreForward.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Shaders\OculusSampleTrainSmokeShader.shader" />
     <None Include="Assets\Oculus\SampleFramework\Usage\OVROverlayCanvas\Shaders\UI Prerendered Opaque.shader" />
@@ -306,14 +326,15 @@
     <None Include="Assets\Oculus\SampleFramework\Usage\OVROverlayCanvas\Shaders\UI Prerendered.shader" />
     <None Include="Assets\Oculus\Avatar\Samples\CrossPlatform\Readme.txt" />
     <None Include="Assets\Oculus\Avatar\Resources\Materials\AvatarSurfaceShaderPBS.shader" />
+    <None Include="Assets\Ultimate 10 Plus Shaders\Shaders\Simple Sine Wave.shader" />
     <None Include="Assets\Oculus\SampleFramework\Core\CustomHands\Materials\Hands_Transparent.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TransformShader\Shaders\UnityStandardCoreForwardSimple.cginc" />
     <None Include="Assets\Oculus\SampleFramework\Core\CustomHands\Shaders\Hands_02.shader" />
     <None Include="Assets\Oculus\SampleFramework\Core\CustomHands\Materials\Hands_DiffBump.shader" />
     <None Include="Assets\Oculus\Avatar\Resources\Materials\Expressive\Avatar_Mobile_SingleComponentExpressive.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
-    <None Include="Assets\HurricaneVR\Framework\VFX\ColumnGlowLicense.txt" />
     <None Include="Assets\Oculus\SampleFramework\license.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -989,10 +1010,6 @@
       <Project>{79111702-3CD9-F629-B2AB-D4F62B6A72D4}</Project>
       <Name>Oculus.VR.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Hurricane.Shared.csproj">
-      <Project>{3F16E8C3-3B50-B6D7-B1C4-EAEE9A71F3E1}</Project>
-      <Name>Hurricane.Shared</Name>
-    </ProjectReference>
     <ProjectReference Include="Oculus.Interaction.Editor.csproj">
       <Project>{BD2F72E3-17D5-1056-F555-9084A12159D4}</Project>
       <Name>Oculus.Interaction.Editor</Name>
@@ -1012,10 +1029,6 @@
     <ProjectReference Include="Oculus.Spatializer.csproj">
       <Project>{A4970105-0D84-26C9-03C0-116B4F89CD11}</Project>
       <Name>Oculus.Spatializer</Name>
-    </ProjectReference>
-    <ProjectReference Include="HurricaneVR.Framework.csproj">
-      <Project>{F46CDB5E-66EA-D3A9-F016-9AE77E6630A4}</Project>
-      <Name>HurricaneVR.Framework</Name>
     </ProjectReference>
     <ProjectReference Include="Oculus.Interaction.csproj">
       <Project>{D7D3767B-2472-4AA8-D543-7F8F18D49971}</Project>
@@ -1077,13 +1090,17 @@
       <Project>{66CC2D63-7383-7EA0-DBF4-4E420623835A}</Project>
       <Name>VoiceSDK.Runtime</Name>
     </ProjectReference>
+    <ProjectReference Include="Oculus.Interaction.Samples.csproj">
+      <Project>{E775B445-B39A-BE69-15BC-4330DB602BD3}</Project>
+      <Name>Oculus.Interaction.Samples</Name>
+    </ProjectReference>
     <ProjectReference Include="HurricaneVR.Editor.csproj">
       <Project>{EDE0C6AF-7EFC-C464-9C82-1542CCD00360}</Project>
       <Name>HurricaneVR.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Oculus.Interaction.Samples.csproj">
-      <Project>{E775B445-B39A-BE69-15BC-4330DB602BD3}</Project>
-      <Name>Oculus.Interaction.Samples</Name>
+    <ProjectReference Include="HurricaneVR.Framework.csproj">
+      <Project>{F46CDB5E-66EA-D3A9-F016-9AE77E6630A4}</Project>
+      <Name>HurricaneVR.Framework</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

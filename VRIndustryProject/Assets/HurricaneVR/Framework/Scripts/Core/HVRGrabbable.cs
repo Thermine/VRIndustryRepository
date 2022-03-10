@@ -47,8 +47,6 @@ namespace HurricaneVR.Framework.Core
         [Tooltip("Does this grabbable require line of sight to the hand grabber to be grabbed?")]
         public bool RequireLineOfSight = true;
 
-
-
         [FormerlySerializedAs("ParentHandModelImmediately")]
         [Tooltip("Should the hand model pose immediately to this upon grabbing.")]
         public bool PoseImmediately;
@@ -58,6 +56,9 @@ namespace HurricaneVR.Framework.Core
 
         [Tooltip("Released if the grabbable exceeds this distance from the grabber.")]
         public float BreakDistance = 1f;
+
+        [Tooltip("The grabbed object will compare it's distance to this when checking BreakDistance release.")]
+        public BreakDistanceSource BreakDistanceSource = BreakDistanceSource.NoDistanceCheck;
 
         [Tooltip("If true the object remains kinematic")]
         public bool RemainsKinematic = true;
@@ -148,7 +149,7 @@ namespace HurricaneVR.Framework.Core
         [Tooltip("Must be below this angle delta from expected hand pose and current hand orientation to create the final joint.")]
         public float FinalJointMaxAngle = 15f;
 
-        [Tooltip("If FinalJointQuick - how long do we try pulling into position before using the final joint settings.")]
+        [Tooltip("How long do we try pulling into position before using the final joint settings.")]
         public float FinalJointTimeout = .25f;
 
         [Tooltip("If assigned, Colliders will populate from these transforms, otherwise all children colliders of the object will be used (until another grabbable is found).")]
@@ -191,6 +192,9 @@ namespace HurricaneVR.Framework.Core
         [Tooltip("Override to change how the hand behaves after reaching max distance from the controller")]
         [DrawIf("OverrideMaxDistanceBehaviour", true)]
         public MaxDistanceBehaviour MaxDistanceBehaviour;
+
+       
+
 
         [Header("Debug")]
         public bool ShowBoundingBox;
@@ -338,8 +342,6 @@ namespace HurricaneVR.Framework.Core
         private bool _forceTwoHandSettings;
 
         private Vector3 _centerOfMass;
-        private Quaternion _inertiaRotation;
-        private Vector3 _inertiaTensor;
         private RigidbodyInterpolation _rbInterpolation;
         private float _mass;
         private bool _waitingForColDetectionReset;
@@ -1295,9 +1297,7 @@ namespace HurricaneVR.Framework.Core
                 OriginalCollisionMode = Rigidbody.collisionDetectionMode;
             }
 
-            _inertiaRotation = Rigidbody.inertiaTensorRotation;
             _centerOfMass = Rigidbody.centerOfMass;
-            _inertiaTensor = Rigidbody.inertiaTensor;
             _mass = Rigidbody.mass;
             _rbInterpolation = Rigidbody.interpolation;
         }
@@ -1530,5 +1530,13 @@ namespace HurricaneVR.Framework.Core
     public enum GrabBehaviour
     {
         Default, PullToHand, HandRetrieves
+    }
+
+
+    public enum BreakDistanceSource
+    {
+        NoDistanceCheck,
+        Hand,
+        Controller,
     }
 }

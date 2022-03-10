@@ -66,6 +66,12 @@ namespace HurricaneVR.Framework.Core.HandPoser
                 Destroy(RightHandPreview);
                 Debug.Log($"Right hand preview was still active. Destroyed.");
             }
+
+            if (BodyPreview)
+            {
+                Destroy(BodyPreview);
+                Debug.Log($"Full Body Preview was still active. Destroyed.");
+            }
         }
     }
 

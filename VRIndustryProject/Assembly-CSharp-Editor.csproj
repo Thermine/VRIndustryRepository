@@ -317,6 +317,9 @@
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.5.7\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
     </Reference>
+    <Reference Include="HurricaneVR.Update">
+      <HintPath>Assets\HurricaneVR\Framework\Editor\Libs\HurricaneVR.Update.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
     </Reference>
@@ -777,10 +780,6 @@
       <Project>{79111702-3CD9-F629-B2AB-D4F62B6A72D4}</Project>
       <Name>Oculus.VR.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Hurricane.Shared.csproj">
-      <Project>{3F16E8C3-3B50-B6D7-B1C4-EAEE9A71F3E1}</Project>
-      <Name>Hurricane.Shared</Name>
-    </ProjectReference>
     <ProjectReference Include="Oculus.Interaction.Editor.csproj">
       <Project>{BD2F72E3-17D5-1056-F555-9084A12159D4}</Project>
       <Name>Oculus.Interaction.Editor</Name>
@@ -800,10 +799,6 @@
     <ProjectReference Include="Oculus.Spatializer.csproj">
       <Project>{A4970105-0D84-26C9-03C0-116B4F89CD11}</Project>
       <Name>Oculus.Spatializer</Name>
-    </ProjectReference>
-    <ProjectReference Include="HurricaneVR.Framework.csproj">
-      <Project>{F46CDB5E-66EA-D3A9-F016-9AE77E6630A4}</Project>
-      <Name>HurricaneVR.Framework</Name>
     </ProjectReference>
     <ProjectReference Include="Oculus.Interaction.csproj">
       <Project>{D7D3767B-2472-4AA8-D543-7F8F18D49971}</Project>
@@ -865,13 +860,17 @@
       <Project>{66CC2D63-7383-7EA0-DBF4-4E420623835A}</Project>
       <Name>VoiceSDK.Runtime</Name>
     </ProjectReference>
+    <ProjectReference Include="Oculus.Interaction.Samples.csproj">
+      <Project>{E775B445-B39A-BE69-15BC-4330DB602BD3}</Project>
+      <Name>Oculus.Interaction.Samples</Name>
+    </ProjectReference>
     <ProjectReference Include="HurricaneVR.Editor.csproj">
       <Project>{EDE0C6AF-7EFC-C464-9C82-1542CCD00360}</Project>
       <Name>HurricaneVR.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Oculus.Interaction.Samples.csproj">
-      <Project>{E775B445-B39A-BE69-15BC-4330DB602BD3}</Project>
-      <Name>Oculus.Interaction.Samples</Name>
+    <ProjectReference Include="HurricaneVR.Framework.csproj">
+      <Project>{F46CDB5E-66EA-D3A9-F016-9AE77E6630A4}</Project>
+      <Name>HurricaneVR.Framework</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

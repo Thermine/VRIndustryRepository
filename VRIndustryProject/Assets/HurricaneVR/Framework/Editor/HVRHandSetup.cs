@@ -95,11 +95,14 @@ namespace HurricaneVR
                 var currLeft = Left;
                 var currRight = Right;
 
-                EditorGUILayout.LabelField("Assign the Avatar Root", EditorStyles.boldLabel);
 
-                HVREditorExtensions.ObjectField("Left Hand Root", ref Left);
-                HVREditorExtensions.ObjectField("Right Hand Root", ref Right);
-                HVREditorExtensions.ObjectField("Rig Root", ref RigRoot);
+                EditorGUILayout.TextArea("1. Create an empty game object and place the hand model's as children of the new object. Make the palms face each other with the finger's facing along the forward (blue) vector of the parent empty.\r\n\r\n" +
+                                         "2. Assign the roots of each hand model.\r\n\r\n" +
+                                         "3. Assign the root of the XR Rig the hand's will be used with.", helpBoxStyle);
+                EditorGUILayout.Space();
+                HVREditorExtensions.ObjectField("Left Hand Model", ref Left);
+                HVREditorExtensions.ObjectField("Right Hand Model", ref Right);
+                HVREditorExtensions.ObjectField("XR Rig Root", ref RigRoot);
 
 
 
@@ -184,10 +187,10 @@ namespace HurricaneVR
             else if (RightPoser.PrimaryPose.Pose == null) error.AppendLine("Right HVRHandPoser Primary Pose not assigned.");
 
 
-            EditorGUILayout.TextArea("1. Pressing Auto Setup will auto create a prefabs of your hands in the Assets Folder and automate step 2. Either do this by manually or let the automation do it for you.\r\n\r\n" +
+            EditorGUILayout.TextArea("1. Pressing Auto Setup will auto create prefabs of your hands in the root Assets Folder and automate Step 2 for you. Either do this by manually or let the automation do it for you.\r\n\r\n" +
                                      "2. Locate HVRSettings in your project folder:\r\n" +
-                                     "  - Assign the prefab to the 'Full Body' field.\r\n" +
-                                     "  - Toggle on 'Inverse Kinematics'.\r\n" +
+                                     "  - Assign the newly created hand prefabs to the 'Left Hand' and 'Right Hand' fields.\r\n" +
+                                     "  - Toggle off 'Inverse Kinematics' if it's enabled.\r\n" +
                                      "  - Clear out the 'Open Hand Pose' field.\r\n\r\n" +
                                      "3. Press Create Hand Poser and begin creating the required poses.\r\n" +
                                      "  - RelaxedPose: for when your hands are not holding something.\r\n" +
@@ -383,7 +386,7 @@ namespace HurricaneVR
 
         private void Mirror()
         {
-            if (!LeftHand || !RightHand || !HandsSetup || !MirrorDetected) return;
+            if (!LeftHand || !RightHand || !HandsSetup || !MirrorDetected || RigSetup) return;
 
 
             EditorGUILayout.Space();
@@ -403,7 +406,7 @@ namespace HurricaneVR
                 {
                     var clone = Object.Instantiate(LeftHand.transform.parent);
                     clone.transform.parent = null;
-                    clone.transform.position += Vector3.right * 2f;
+                    clone.transform.position += Vector3.right * .5f;
 
                     _leftMirrorHand = clone.GetComponentsInChildren<HVRPosableHand>().FirstOrDefault(e => e.IsLeft);
                     _rightMirrorHand = clone.GetComponentsInChildren<HVRPosableHand>().FirstOrDefault(e => !e.IsLeft);
@@ -506,13 +509,13 @@ namespace HurricaneVR
 
 
             EditorGUILayout.TextArea(
-                "1. Assign the transforms that are the common parents of each finger's first bone." +
+                "1. The 'Parent' field is the transform that is the common parent of each finger's first bone." +
                 "\r\n\r\n2. Match the order of the finger list with the order on the hand model." +
                 " The default order matches most hand rigs. If your hand has less than 5 fingers, set those slots to 'None'\r\n" +
                 "\r\n3. Update the bone count for each finger.\r\n" +
-                "\r\n4. Some hand rigs have an uneven hierarchy, update the Root Offset field with the # of bones between the parent and first bone.\r\n" +
+                "\r\n4. Some hand rigs may have an uneven hierarchy, update the Root Offset field with the # of bones between the parent and first bone.\r\n" +
                 "\r\n5. If the finger has Tip / End transforms already, enable 'Has Tip', otherwise they will be auto generated on the last bone.\r\n" +
-                "\r\n6. Press Setup and verify each HVRPosableHand fingers have the proper Root, Tip, and Bone counts assigned. Move the tip transforms to center of the finger pad.\r\n" +
+                "\r\n6. Press Setup and verify each HVRPosableHand fingers have the proper Root, Tip, and Bone counts assigned. Move the tip transforms to the center of the finger pad.\r\n" +
                 "\r\n7. Move the 'Palm' transforms that were added to the hands to the center of the palm (barely touching the surface) with the forward (blue) axis facing out of the palm.", helpBoxStyle);
 
             //int i = 0;
@@ -716,7 +719,7 @@ namespace HurricaneVR
                     var bone = new HVRPosableBone();
                     bone.Transform = node;
                     finger.Bones.Add(bone);
-                    if(j < s.BoneCount - 1) node = node.GetChild(0);
+                    if (j < s.BoneCount - 1) node = node.GetChild(0);
                 }
 
 

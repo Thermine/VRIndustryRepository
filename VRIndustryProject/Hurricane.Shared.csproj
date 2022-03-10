@@ -56,18 +56,18 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\HurricaneVR\Framework\Shared\HVREnums.cs" />
-    <Compile Include="Assets\HurricaneVR\Framework\Shared\InspectorButton.cs" />
-    <Compile Include="Assets\HurricaneVR\Framework\Shared\HVRGrabHaptics.cs" />
-    <Compile Include="Assets\HurricaneVR\Framework\Shared\Utilities\CoroutineExtensions.cs" />
-    <Compile Include="Assets\HurricaneVR\Framework\Shared\HVRRootFinder.cs" />
-    <Compile Include="Assets\HurricaneVR\Framework\Shared\HVRInputSettings.cs" />
-    <Compile Include="Assets\HurricaneVR\Framework\Shared\HVRFingerSettings.cs" />
-    <Compile Include="Assets\HurricaneVR\Framework\Shared\Utilities\CircularBuffer.cs" />
-    <Compile Include="Assets\HurricaneVR\Framework\Shared\HVRController.cs" />
+    <Compile Include="Assets\3rd Party\HurricaneVR\Framework\Shared\HVREnums.cs" />
+    <Compile Include="Assets\3rd Party\HurricaneVR\Framework\Shared\InspectorButton.cs" />
+    <Compile Include="Assets\3rd Party\HurricaneVR\Framework\Shared\HVRSettings.cs" />
+    <Compile Include="Assets\3rd Party\HurricaneVR\Framework\Shared\HVRGrabHaptics.cs" />
+    <Compile Include="Assets\3rd Party\HurricaneVR\Framework\Shared\Utilities\CoroutineExtensions.cs" />
+    <Compile Include="Assets\3rd Party\HurricaneVR\Framework\Shared\HVRRootFinder.cs" />
+    <Compile Include="Assets\3rd Party\HurricaneVR\Framework\Shared\HVRInputSettings.cs" />
+    <Compile Include="Assets\3rd Party\HurricaneVR\Framework\Shared\HVRFingerSettings.cs" />
+    <Compile Include="Assets\3rd Party\HurricaneVR\Framework\Shared\Utilities\CircularBuffer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\HurricaneVR\Framework\Shared\Hurricane.Shared.asmdef" />
+    <None Include="Assets\3rd Party\HurricaneVR\Framework\Shared\Hurricane.Shared.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -303,6 +303,9 @@
     </Reference>
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="HurricaneVR.Update">
+      <HintPath>Assets\3rd Party\HurricaneVR\Framework\Editor\Libs\HurricaneVR.Update.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.5.7\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
