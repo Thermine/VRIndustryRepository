@@ -106,10 +106,10 @@
     <Compile Include="Assets\Oculus\Platform\Scripts\NetSyncVoipStreamMode.cs" />
     <Compile Include="Assets\Oculus\Platform\Scripts\Models\MatchmakingEnqueueResultAndRoom.cs" />
     <Compile Include="Assets\Oculus\Platform\Scripts\PlatformInitializeResult.cs" />
-    <Compile Include="Assets\Oculus\Platform\Scripts\Models\CalApplicationSuggestion.cs" />
     <Compile Include="Assets\Oculus\Platform\Scripts\Models\LeaderboardEntry.cs" />
     <Compile Include="Assets\Oculus\Platform\Scripts\ChallengeVisibility.cs" />
     <Compile Include="Assets\Oculus\Platform\Scripts\Models\Product.cs" />
+    <Compile Include="Assets\Oculus\Platform\Scripts\Models\CalApplicationSuggestion.cs" />
     <Compile Include="Assets\Oculus\Platform\Scripts\Models\UserReportID.cs" />
     <Compile Include="Assets\Oculus\Platform\Scripts\Models\MatchmakingStats.cs" />
     <Compile Include="Assets\Oculus\Platform\Scripts\Models\CloudStorageMetadata.cs" />

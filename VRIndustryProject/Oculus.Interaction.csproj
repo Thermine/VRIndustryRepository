@@ -163,8 +163,8 @@
     <Compile Include="Assets\Oculus\Interaction\Runtime\Scripts\Interaction\Core\ActiveStateTracker.cs" />
     <Compile Include="Assets\Oculus\Interaction\Runtime\Scripts\Interaction\Pointable\IPointableCanvas.cs" />
     <Compile Include="Assets\Oculus\Interaction\Runtime\Scripts\Interaction\Core\MultiAction.cs" />
-    <Compile Include="Assets\Oculus\Interaction\Runtime\Scripts\Input\Hands\DataModifiers\LastKnownGoodDataModifier.cs" />
     <Compile Include="Assets\Oculus\Interaction\Runtime\Scripts\Unity\UnityInfo.cs" />
+    <Compile Include="Assets\Oculus\Interaction\Runtime\Scripts\Input\Hands\DataModifiers\LastKnownGoodDataModifier.cs" />
     <Compile Include="Assets\Oculus\Interaction\Runtime\Scripts\Interaction\Core\IInteractable.cs" />
     <Compile Include="Assets\Oculus\Interaction\Runtime\Scripts\Collisions\IsCapsuleWithinColliderApprox.cs" />
     <Compile Include="Assets\Oculus\Interaction\Runtime\Scripts\PoseDetection\Debug\FingerFeatureSkeletalDebugVisual.cs" />

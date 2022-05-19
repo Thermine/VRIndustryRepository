@@ -788,6 +788,10 @@
       <Project>{EA9E1861-6131-3A9C-DEC5-CDD7426D3565}</Project>
       <Name>AssistantCoreSDKEditor</Name>
     </ProjectReference>
+    <ProjectReference Include="Obi.csproj">
+      <Project>{2E9E1B3F-DE1C-0C67-5109-C2B52E0AF2AC}</Project>
+      <Name>Obi</Name>
+    </ProjectReference>
     <ProjectReference Include="Oculus.AudioManager.csproj">
       <Project>{F35E345B-2695-0CE1-D23F-17ABC4310E49}</Project>
       <Name>Oculus.AudioManager</Name>
@@ -796,9 +800,9 @@
       <Project>{AEE4ECE1-8143-F0BE-E996-0671AF91D732}</Project>
       <Name>Oculus.VR.Scripts.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Oculus.Spatializer.csproj">
-      <Project>{A4970105-0D84-26C9-03C0-116B4F89CD11}</Project>
-      <Name>Oculus.Spatializer</Name>
+    <ProjectReference Include="Obi.Editor.csproj">
+      <Project>{FD5F9E0E-98E0-67D9-B3CD-D14B75606B15}</Project>
+      <Name>Obi.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="HurricaneVR.Framework.csproj">
       <Project>{F46CDB5E-66EA-D3A9-F016-9AE77E6630A4}</Project>
@@ -811,6 +815,10 @@
     <ProjectReference Include="AssistantCoreSDKRuntime.csproj">
       <Project>{4F677EE5-E57B-7E80-C60A-09F97A59F5A5}</Project>
       <Name>AssistantCoreSDKRuntime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Oculus.Spatializer.csproj">
+      <Project>{A4970105-0D84-26C9-03C0-116B4F89CD11}</Project>
+      <Name>Oculus.Spatializer</Name>
     </ProjectReference>
     <ProjectReference Include="Oculus.AudioManager.Utils.Editor.csproj">
       <Project>{8FF78C9D-8916-ED25-89EC-19FD7791FCEC}</Project>
@@ -871,14 +879,6 @@
     <ProjectReference Include="Oculus.Interaction.Samples.csproj">
       <Project>{E775B445-B39A-BE69-15BC-4330DB602BD3}</Project>
       <Name>Oculus.Interaction.Samples</Name>
-    </ProjectReference>
-    <ProjectReference Include="Obi.Editor.csproj">
-      <Project>{FD5F9E0E-98E0-67D9-B3CD-D14B75606B15}</Project>
-      <Name>Obi.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Obi.csproj">
-      <Project>{2E9E1B3F-DE1C-0C67-5109-C2B52E0AF2AC}</Project>
-      <Name>Obi</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -59,14 +59,20 @@
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportOrientationHandlerHMD.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportAimHandlerParabolic.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Firebase\StartCrashlytics.cs" />
+    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\AddRandomVelocity.cs" />
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoLockedDoor.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\HandsActiveChecker.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarSkinnedMeshRenderPBSV2Component.cs" />
-    <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoValveHologram.cs" />
+    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\FPSDisplay.cs" />
+    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ObjectDragger.cs" />
+    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\Wrappable.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarSettings.cs" />
+    <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoValveHologram.cs" />
+    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ObiParticleCounter.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\PassthroughProjectionSurface.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\GazeTarget.cs" />
     <Compile Include="Assets\Oculus\Voice\Demo\Scripts\BuiltinDemo\TimerDisplay.cs" />
+    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ColorFromViscosity.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarSkinnedMeshRenderComponent.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\CowController.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\HandMeshUI.cs" />
@@ -74,9 +80,11 @@
     <Compile Include="Assets\Oculus\SampleFramework\Core\CustomHands\Scripts\HandPose.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\Tools\InteractableTool.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\EnableUnpremultipliedAlpha.cs" />
+    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ColliderHighlighter.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Video\Plugins\Android\NativeVideoPlayer.cs" />
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoKeypadButton.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportAimVisualLaser.cs" />
+    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\CollisionEventHandler.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Video\Scripts\MoviePlayerSample.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportDestination.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\TrainButtonVisualController.cs" />
@@ -85,6 +93,7 @@
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\GrabObject.cs" />
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoFullStabConfetti.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\SimpleCapsuleWithStickMovement.cs" />
+    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\ObiFluidPropertyColorizer.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\AugmentedObject.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\InteractableRegistry.cs" />
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoKeypad.cs" />
@@ -92,37 +101,51 @@
     <Compile Include="Assets\Oculus\SampleFramework\Core\DistanceGrab\Scripts\DistanceGrabbable.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\Utils\Pose.cs" />
     <Compile Include="Assets\Ultimate 10 Plus Shaders\Shaders\Plexus\Plexus.cs" />
+    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\GrapplingHook.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportInputHandlerHMD.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportInputHandler.cs" />
+    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ActorCOMTransform.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\DistanceGrab\Scripts\GrabManager.cs" />
+    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\SlowmoToggler.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\SpatialAnchor\Scripts\AnchorSession.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\CharacterCameraConstraint.cs" />
     <Compile Include="Assets\TransformShader\ZombifyDEMO\ZombifyAmount.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\SpatialAnchor\Scripts\SpatialAnchorSession.cs" />
+    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\ExtendableGrapplingHook.cs" />
     <Compile Include="Assets\Oculus\Avatar\Samples\LocalAvatar\Scripts\GazeTargetSpawner.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTransitionWarp.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Video\Scripts\VectorUtil.cs" />
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoSocketables.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarAsset.cs" />
+    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\DebugParticleFrames.cs" />
     <Compile Include="Assets\Oculus\Avatar\Samples\SocialStarter\Assets\Scripts\SocialPlatformManager.cs" />
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoHatchDoor.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\DistanceGrab\Scripts\PauseOnInputLoss.cs" />
+    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\MazeManager.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\InteractableToolsCreator.cs" />
+    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\CharacterController\SampleCharacterController.cs" />
+    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\BucketController.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Oculus\Avatar\Samples\SocialStarter\Assets\Scripts\P2PManager.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\DebugUI\Scripts\DebugUIBuilder.cs" />
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoPowerUnit.cs" />
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoKeyHologram.cs" />
+    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\CharacterController\ObiCharacter.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Firebase\SampleUI.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportSupport.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\ButtonController.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\CustomHands\Scripts\Hand.cs" />
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoLeverDisplay.cs" />
+    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\WrapRopePlayerController.cs" />
+    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\LookAroundCamera.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportOrientationHandler.cs" />
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoLock.cs" />
     <Compile Include="Assets\Oculus\Avatar\Samples\RemoteLoopback\Scripts\RemoteLoopbackManager.cs" />
+    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RopeNet.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Locomotion\Scripts\LocomotionSampleSupport.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\Flashlight.cs" />
+    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\SolidifyOnContact.cs" />
+    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\FluidJetController.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\SpatialAnchor\Scripts\AnchorSpawner.cs" />
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoSlidingDoor.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Locomotion\Scripts\CharacterCapsule.cs" />
@@ -132,6 +155,7 @@
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\TrainTrack.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\DistanceGrab\Scripts\DistanceGrabber.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarLocalDriver.cs" />
+    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ObiActorTeleport.cs" />
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoHelper.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarBase.cs" />
     <Compile Include="Assets\Ultimate 10 Plus Shaders\Scripts\U10PS_ExampleReview.cs" />
@@ -141,20 +165,33 @@
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\TrainCar.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\PassthroughSurface.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportPoint.cs" />
+    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ObjectLimit.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\Tools\FingerTipPokeTool.cs" />
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoValveLock.cs" />
+    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\Melt.cs" />
     <Compile Include="Assets\Oculus\Avatar\Samples\GripPoses\Scripts\PoseEditHelper.cs" />
+    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RopeBetweenTwoPoints.cs" />
+    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\SpiralCurve.cs" />
+    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RopeTensionColorizer.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTargetHandlerNavMesh.cs" />
+    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\CraneController.cs" />
+    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\MoveAndRotate.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarTouchController.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\ControllerBoxController.cs" />
+    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RuntimeRopeGenerator.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\AppDeeplink\UI\CustomDebugUI.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Video\Scripts\ButtonDownListener.cs" />
+    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ColorFromPhase.cs" />
     <Compile Include="Assets\Oculus\Voice\Demo\Scripts\UIShapesDemo\ColorChanger.cs" />
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoManualTeleport.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportAimHandlerLaser.cs" />
+    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ColorFromVelocity.cs" />
+    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\EmitOnKeyPress.cs" />
+    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\WrapRopeGameController.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\PassthroughBrush.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\PassthroughController.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatar.cs" />
+    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RuntimeRopeGeneratorUse.cs" />
     <Compile Include="Assets\Ultimate 10 Plus Shaders\Scripts\U10PS_MouseRotation.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarMaterialManager.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\ColliderZone.cs" />
@@ -180,16 +217,19 @@
     <Compile Include="Assets\Oculus\Voice\Demo\Scripts\BuiltinDemo\TimerController.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\ButtonTriggerZone.cs" />
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoCodeGrabbing.cs" />
+    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ActorSpawner.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Firebase\AnalyticsUI.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\BoneCapsuleTriggerLogic.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\DistanceGrab\Scripts\ColorGrabbable.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Video\Scripts\MediaPlayerImage.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\DistanceGrab\Scripts\DistanceGrabberSample.cs" />
+    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RopeSweepCut.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\HandsManager.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarSettingsEditor.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\SceneSampler.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarPacket.cs" />
+    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ColorRandomizer.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTargetHandlerNode.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\DistanceGrab\Scripts\GrabbableCrosshair.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarAssetMesh.cs" />
@@ -211,21 +251,31 @@
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportInputHandlerTouch.cs" />
     <Compile Include="Assets\Oculus\Avatar\Samples\SocialStarter\Assets\Scripts\VoipManager.cs" />
     <Compile Include="Assets\Oculus\Voice\Demo\Scripts\UIShapesDemo\Instructions.cs" />
+    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\Blinker.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTransitionInstant.cs" />
     <Compile Include="Assets\Oculus\Avatar\Samples\SocialStarter\Assets\Scripts\RemotePlayer.cs" />
+    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\FluidColorizer.cs" />
+    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\HosePump.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\SpatialAnchor\Scripts\Anchor.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\Tools\InteractableToolView.cs" />
     <Compile Include="Assets\Ultimate 10 Plus Shaders\Scripts\U10PS_SnowOverTime.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\InteractableToolsInputRouter.cs" />
+    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\MazeScoreFormatter.cs" />
+    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\WaveGenerator.cs" />
+    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RopeTenser.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\ObjectManipulator.cs" />
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoGlassRotate.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\OverlayPassthrough.cs" />
+    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ExtrapolationCamera.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\LocomotionTeleport.cs" />
     <Compile Include="Assets\Oculus\Voice\Demo\Scripts\InteractionHandler.cs" />
+    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\ViscositySurfTensionToUserData.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\OVROverlayCanvas\Scripts\OVROverlayCanvas.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportOrientationHandler360.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportAimHandler.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\FlashlightController.cs" />
+    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\SnakeController.cs" />
+    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\CharacterControl2D.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\SpatialAnchor\Scripts\AnchorHelpers.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\Tools\RayToolView.cs" />
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoSocketFilter.cs" />
@@ -236,7 +286,9 @@
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoDummyArm.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\Tools\RayTool.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\Tools\FingerTipPokeToolView.cs" />
+    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\CursorController.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarTextureCopyManager.cs" />
+    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\OverlapTest.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\OVROverlay\Scripts\OVROverlaySample.cs" />
     <Compile Include="Assets\HurricaneVR\TechDemo\Scripts\DemoPassthroughSocket.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTargetHandler.cs" />
@@ -244,60 +296,8 @@
     <Compile Include="Assets\Oculus\SampleFramework\Usage\SpatialAnchor\Scripts\AnchorUIManager.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\SelectivePassthroughExperience.cs" />
     <Compile Include="Assets\Oculus\Avatar\Samples\SocialStarter\Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\TrackSegment.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ExtrapolationCamera.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ActorSpawner.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\AddRandomVelocity.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ColorFromVelocity.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\DebugParticleFrames.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\CollisionEventHandler.cs" />
-    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\EmitOnKeyPress.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\WrapRopeGameController.cs" />
-    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\ViscositySurfTensionToUserData.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\FPSDisplay.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ObjectDragger.cs" />
-    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\MazeManager.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\CharacterController\SampleCharacterController.cs" />
-    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\BucketController.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ObjectLimit.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\SnakeController.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RuntimeRopeGeneratorUse.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\CharacterControl2D.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\Wrappable.cs" />
-    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\ObiFluidPropertyColorizer.cs" />
-    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\Melt.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\CharacterController\ObiCharacter.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RopeBetweenTwoPoints.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\Blinker.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RopeSweepCut.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\SpiralCurve.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\GrapplingHook.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\WrapRopePlayerController.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ObiParticleCounter.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\LookAroundCamera.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RopeTensionColorizer.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RopeNet.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\CursorController.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ActorCOMTransform.cs" />
-    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\FluidColorizer.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\SlowmoToggler.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ColorFromViscosity.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\HosePump.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ColorRandomizer.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\CraneController.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\MoveAndRotate.cs" />
-    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\OverlapTest.cs" />
-    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\SolidifyOnContact.cs" />
-    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\FluidJetController.cs" />
-    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\MazeScoreFormatter.cs" />
-    <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\WaveGenerator.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RuntimeRopeGenerator.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RopeTenser.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\ExtendableGrapplingHook.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ColorFromPhase.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ColliderHighlighter.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ObiActorTeleport.cs" />
     <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\WorldSpaceGravity.cs" />
+    <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\TrackSegment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Shaders\XingLightShader.shader" />
@@ -1097,6 +1097,10 @@
       <Project>{EA9E1861-6131-3A9C-DEC5-CDD7426D3565}</Project>
       <Name>AssistantCoreSDKEditor</Name>
     </ProjectReference>
+    <ProjectReference Include="Obi.csproj">
+      <Project>{2E9E1B3F-DE1C-0C67-5109-C2B52E0AF2AC}</Project>
+      <Name>Obi</Name>
+    </ProjectReference>
     <ProjectReference Include="Oculus.AudioManager.csproj">
       <Project>{F35E345B-2695-0CE1-D23F-17ABC4310E49}</Project>
       <Name>Oculus.AudioManager</Name>
@@ -1105,9 +1109,9 @@
       <Project>{AEE4ECE1-8143-F0BE-E996-0671AF91D732}</Project>
       <Name>Oculus.VR.Scripts.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Oculus.Spatializer.csproj">
-      <Project>{A4970105-0D84-26C9-03C0-116B4F89CD11}</Project>
-      <Name>Oculus.Spatializer</Name>
+    <ProjectReference Include="Obi.Editor.csproj">
+      <Project>{FD5F9E0E-98E0-67D9-B3CD-D14B75606B15}</Project>
+      <Name>Obi.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="HurricaneVR.Framework.csproj">
       <Project>{F46CDB5E-66EA-D3A9-F016-9AE77E6630A4}</Project>
@@ -1120,6 +1124,10 @@
     <ProjectReference Include="AssistantCoreSDKRuntime.csproj">
       <Project>{4F677EE5-E57B-7E80-C60A-09F97A59F5A5}</Project>
       <Name>AssistantCoreSDKRuntime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Oculus.Spatializer.csproj">
+      <Project>{A4970105-0D84-26C9-03C0-116B4F89CD11}</Project>
+      <Name>Oculus.Spatializer</Name>
     </ProjectReference>
     <ProjectReference Include="Oculus.AudioManager.Utils.Editor.csproj">
       <Project>{8FF78C9D-8916-ED25-89EC-19FD7791FCEC}</Project>
@@ -1180,14 +1188,6 @@
     <ProjectReference Include="Oculus.Interaction.Samples.csproj">
       <Project>{E775B445-B39A-BE69-15BC-4330DB602BD3}</Project>
       <Name>Oculus.Interaction.Samples</Name>
-    </ProjectReference>
-    <ProjectReference Include="Obi.Editor.csproj">
-      <Project>{FD5F9E0E-98E0-67D9-B3CD-D14B75606B15}</Project>
-      <Name>Obi.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Obi.csproj">
-      <Project>{2E9E1B3F-DE1C-0C67-5109-C2B52E0AF2AC}</Project>
-      <Name>Obi</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

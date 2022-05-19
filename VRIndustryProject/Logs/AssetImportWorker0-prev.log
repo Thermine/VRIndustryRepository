@@ -15,12 +15,12 @@ C:/UnityProjects/VRIndustryRepository/VRIndustryProject
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-62070
+59163
 Successfully changed project path to: C:/UnityProjects/VRIndustryRepository/VRIndustryProject
 C:/UnityProjects/VRIndustryRepository/VRIndustryProject
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 96.87 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.75 ms.
+Refreshing native plugins compatible for Editor in 103.31 ms, found 7 plugins.
+Preloading 1 native plugins for Editor in 0.68 ms.
 Initialize engine version: 2020.3.13f1 (71691879b7f5)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path C:/UnityProjects/VRIndustryRepository/VRIndustryProject/Assets
@@ -36,31 +36,30 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56936
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56672
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001457 seconds.
+Registered in 0.001504 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 88.39 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.05 ms.
+Refreshing native plugins compatible for Editor in 91.88 ms, found 7 plugins.
+Preloading 1 native plugins for Editor in 0.06 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.891 seconds
+- Completed reload, in  0.946 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.005530 seconds.
+Registered in 0.005732 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 91.10 ms, found 7 plugins.
+Refreshing native plugins compatible for Editor in 92.87 ms, found 7 plugins.
 Preloading 1 native plugins for Editor in 0.06 ms.
-[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
 [XR] OculusXRPlugin: registering subsystems
 [XR] Unable to register display lifecyle provider: [1]
 [XR] Oculus Input lifecycle provider registered.
 [XR] Unable to register input lifecyle provider: [1]
 [XR] OVRP version 1.69.0
 Mono: successfully reloaded assembly
-- Completed reload, in  1.101 seconds
+- Completed reload, in  1.113 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
@@ -68,14 +67,14 @@ Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Ren
 Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Refreshing native plugins compatible for Editor in 1.32 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.07 ms.
+Refreshing native plugins compatible for Editor in 1.11 ms, found 7 plugins.
+Preloading 1 native plugins for Editor in 0.05 ms.
 Unloading 4632 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 210.8 MB.
-System memory in use after: 208.5 MB.
+System memory in use before: 211.4 MB.
+System memory in use after: 209.1 MB.
 
 Unloading 91 unused Assets to reduce memory usage. Loaded Objects now: 5006.
-Total: 4.027700 ms (FindLiveObjects: 0.382800 ms CreateObjectMapping: 0.208300 ms MarkObjects: 2.280500 ms  DeleteObjects: 1.155000 ms)
+Total: 3.438800 ms (FindLiveObjects: 0.346500 ms CreateObjectMapping: 0.199400 ms MarkObjects: 1.935800 ms  DeleteObjects: 0.956300 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -89,370 +88,196 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/Obi/Samples/Fluid
-  artifactKey: Guid(5670fc580620e46af8da9fd360844de7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid using Guid(5670fc580620e46af8da9fd360844de7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b8c00a17d3b761a8141469e31a23bd0') in 0.008434 seconds 
-  Import took 0.014359 seconds .
+  path: ProjectSettings/TagManager.asset
+  artifactKey: Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing ProjectSettings/TagManager.asset using Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a01b9b75906c699e0e51cc17a6b9427') in 0.028254 seconds 
+  Import took 0.033934 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000205 seconds.
-  path: Assets/Obi
-  artifactKey: Guid(6b5e3d52586c0462da0cff02c06b0fcd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi using Guid(6b5e3d52586c0462da0cff02c06b0fcd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1fd48bea3e45b561140d58b0cae11cea') in 0.004167 seconds 
-  Import took 0.009708 seconds .
+  Time since last request: 159.435413 seconds.
+  path: Assets/Scripts/SimpleCameraController.cs
+  artifactKey: Guid(be76e5f14cfee674cb30b491fb72b09b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/SimpleCameraController.cs using Guid(be76e5f14cfee674cb30b491fb72b09b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22f43657664d19fbc476a42e0fad91a9') in 0.006836 seconds 
+  Import took 0.013569 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000253 seconds.
-  path: Assets/Obi/Samples
-  artifactKey: Guid(3a2242974391642bcb80ee2090380780) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples using Guid(3a2242974391642bcb80ee2090380780) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '650296a5c3b7a2a44b8c671d24b6a71a') in 0.004137 seconds 
-  Import took 0.010341 seconds .
+  Time since last request: 0.001708 seconds.
+  path: Assets/Scripts/SimpleCameraController.cs
+  artifactKey: Guid(be76e5f14cfee674cb30b491fb72b09b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/SimpleCameraController.cs using Guid(be76e5f14cfee674cb30b491fb72b09b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22f43657664d19fbc476a42e0fad91a9') in 0.001668 seconds 
+  Import took 0.007541 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.158031 seconds.
-  path: Assets/Obi/Samples/Fluid/FluidFoam.unity
-  artifactKey: Guid(07b05b57d441342e7bdc95a85e768ea1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/FluidFoam.unity using Guid(07b05b57d441342e7bdc95a85e768ea1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '194177196ce3b1fd20505f811612a888') in 0.010879 seconds 
-  Import took 0.016494 seconds .
+  Time since last request: 1.181385 seconds.
+  path: Assets/Scripts/InteractionsScript.cs
+  artifactKey: Guid(7e8bc2f14ff3d43458e0bb4087a4cae5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/InteractionsScript.cs using Guid(7e8bc2f14ff3d43458e0bb4087a4cae5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58e5d9f76b71a2adb5f542de2e91063f') in 0.004662 seconds 
+  Import took 0.010434 seconds .
 
 ========================================================================
-Received Import Request.
-  Time since last request: 39.812907 seconds.
-  path: Assets/Obi/Resources/DefaultRopeSection.asset
-  artifactKey: Guid(a0bc36a59515f413e90e10895929c938) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Resources/DefaultRopeSection.asset using Guid(a0bc36a59515f413e90e10895929c938) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b338eebe4fd6a16c2754b8dc06b8e6f7') in 0.020466 seconds 
-  Import took 0.026484 seconds .
+Received Prepare
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 47.29 ms, found 7 plugins.
+Preloading 1 native plugins for Editor in 0.19 ms.
+Unloading 84 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 108.6 MB.
+System memory in use after: 106.3 MB.
 
+Unloading 84 unused Assets to reduce memory usage. Loaded Objects now: 5007.
+Total: 22.558500 ms (FindLiveObjects: 1.915600 ms CreateObjectMapping: 0.634700 ms MarkObjects: 18.292100 ms  DeleteObjects: 1.714100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000217 seconds.
-  path: Assets/Obi/Resources
-  artifactKey: Guid(6217e7f6fe8104bbca06fe7ac150a57d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Resources using Guid(6217e7f6fe8104bbca06fe7ac150a57d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b38e03944ba84223e443348165d1fe8') in 0.004171 seconds 
-  Import took 0.009758 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.572107 seconds.
-  path: Assets/Obi/Samples/Fluid/FluidOverlapQuery.unity
-  artifactKey: Guid(02a505ae957c44657b6b98ca91270328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/FluidOverlapQuery.unity using Guid(02a505ae957c44657b6b98ca91270328) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3800e6caeb6ec276b6223ee9b798a194') in 0.004579 seconds 
-  Import took 0.010575 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 24.768790 seconds.
-  path: Assets/Obi/Samples/Fluid/SampleResources
-  artifactKey: Guid(8ebc5b9dff7874e7489e49668309ac11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/SampleResources using Guid(8ebc5b9dff7874e7489e49668309ac11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2671b0680b1cc148738c259c3c0f8029') in 0.004433 seconds 
-  Import took 0.010528 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 14.381403 seconds.
-  path: Assets/Obi/Samples/Fluid/FluidMixing.unity
-  artifactKey: Guid(a921ece7be2f6432889151e031795159) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/FluidMixing.unity using Guid(a921ece7be2f6432889151e031795159) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1791be6c07506d4e87e2a99de884534c') in 0.004831 seconds 
-  Import took 0.010847 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 13.618308 seconds.
-  path: Assets/Obi/Samples/Fluid/FluidSmoke.unity
-  artifactKey: Guid(918c8c12d4d7a412882f12a4af523feb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/FluidSmoke.unity using Guid(918c8c12d4d7a412882f12a4af523feb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95e3f48df9a52dc375a212c928cfcb64') in 0.004808 seconds 
-  Import took 0.010859 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 16.002741 seconds.
-  path: Assets/Scenes/SampleScene.unity
-  artifactKey: Guid(d1c3109bdb54ad54c8a2b2838528e640) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/SampleScene.unity using Guid(d1c3109bdb54ad54c8a2b2838528e640) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a7c01bc8ed57adf1ede3d700e613d7f') in 0.004672 seconds 
-  Import took 0.010386 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.834514 seconds.
-  path: Assets/Scenes/MainScene.unity
-  artifactKey: Guid(19ccd214f1d5bf1429171a5f818f0a0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/MainScene.unity using Guid(19ccd214f1d5bf1429171a5f818f0a0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5cce12650bee44974e5cd62a9ceccab') in 0.005027 seconds 
-  Import took 0.010681 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 78.705292 seconds.
-  path: Assets/Obi/Resources/ObiMaterials
-  artifactKey: Guid(40f10b6d47dcf4fe5a4851bad844fa57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Resources/ObiMaterials using Guid(40f10b6d47dcf4fe5a4851bad844fa57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '969e4573783dd346f69382d7bd59b837') in 0.004440 seconds 
-  Import took 0.010616 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.409638 seconds.
-  path: Assets/Obi/Plugins
-  artifactKey: Guid(8e4e86215c462421ab9ce3fb2940e67e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Plugins using Guid(8e4e86215c462421ab9ce3fb2940e67e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03bb743d60a67edfd9e3a1b04610eff9') in 0.004456 seconds 
-  Import took 0.010113 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.601965 seconds.
-  path: Assets/Obi/Scripts
-  artifactKey: Guid(7dc12f70242e74cd485e5ba96559b3ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Scripts using Guid(7dc12f70242e74cd485e5ba96559b3ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '956feedbb600b62e46a3d79dfbd56905') in 0.004431 seconds 
-  Import took 0.010082 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.087464 seconds.
-  path: Assets/Obi/Scripts/Obi.asmdef
-  artifactKey: Guid(da7abd44cdeea48609605c1c2c9609c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Scripts/Obi.asmdef using Guid(da7abd44cdeea48609605c1c2c9609c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce8303ff5b9eae5129bb0235911c303d') in 0.002802 seconds 
-  Import took 0.008375 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.248996 seconds.
-  path: Assets/Obi/Scripts/Fluid
-  artifactKey: Guid(bd4a1fadd50ae45e5a29a20cabab8cb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Scripts/Fluid using Guid(bd4a1fadd50ae45e5a29a20cabab8cb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dbdf37973c7cf2263f024de632fcdd6e') in 0.001592 seconds 
-  Import took 0.007444 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.393443 seconds.
-  path: Assets/Obi/Scripts/Fluid/Blueprints
-  artifactKey: Guid(135cd7caf0b6a48dca7875f08bb5dd4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Scripts/Fluid/Blueprints using Guid(135cd7caf0b6a48dca7875f08bb5dd4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7bd9ea98042a0172ac43da8384eb7d7f') in 0.004331 seconds 
-  Import took 0.010069 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 9.505229 seconds.
-  path: Assets/Obi/Samples/Fluid/SampleResources/Blueprints
-  artifactKey: Guid(fed94a6cfb84f491790ab8c520853058) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/SampleResources/Blueprints using Guid(fed94a6cfb84f491790ab8c520853058) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6c4762a565fdc7b631c5aec29708578') in 0.001803 seconds 
-  Import took 0.007677 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.064300 seconds.
-  path: Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Blood.asset
-  artifactKey: Guid(f16839f0bd45c4b8482269b480638501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Blood.asset using Guid(f16839f0bd45c4b8482269b480638501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70ddc25474c0e16df5d5cad3cb58f13c') in 0.039507 seconds 
-  Import took 0.045651 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000223 seconds.
-  path: Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Gravel.asset
-  artifactKey: Guid(d0df66d814ba64449a23c170cd172e17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Gravel.asset using Guid(d0df66d814ba64449a23c170cd172e17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3defaeec6e7fe82d0d24a2cca8a05fa8') in 0.020129 seconds 
-  Import took 0.025470 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000236 seconds.
-  path: Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Rocks.asset
-  artifactKey: Guid(bdc1b71fd493e4c28be1ea1946ca7a07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Rocks.asset using Guid(bdc1b71fd493e4c28be1ea1946ca7a07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34e6e0bb7cf87f149a2534495d80cc0c') in 0.006962 seconds 
-  Import took 0.012201 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000241 seconds.
-  path: Assets/Obi/Samples/Fluid/SampleResources/Blueprints/MazeFluid.asset
-  artifactKey: Guid(41710cc8d61ae4975bb0954b45b7e4b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/SampleResources/Blueprints/MazeFluid.asset using Guid(41710cc8d61ae4975bb0954b45b7e4b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23ea32ea9af7b798a8ac873f02285b33') in 0.006971 seconds 
-  Import took 0.013169 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000196 seconds.
-  path: Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Simple Fluid.asset
-  artifactKey: Guid(5754c273f19e0445a86268d4ef5049e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Simple Fluid.asset using Guid(5754c273f19e0445a86268d4ef5049e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '157ff3cea039ac3612dd184eb875cd3f') in 0.006679 seconds 
-  Import took 0.012532 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000265 seconds.
-  path: Assets/Obi/Samples/Fluid/SampleResources/Blueprints/KarmanFluid.asset
-  artifactKey: Guid(bc6a0ad31b56248b5be159a27a69b3a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/SampleResources/Blueprints/KarmanFluid.asset using Guid(bc6a0ad31b56248b5be159a27a69b3a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c37f96dcd48456799b5322b55099007c') in 0.010623 seconds 
-  Import took 0.016645 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000179 seconds.
-  path: Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Raclette.asset
-  artifactKey: Guid(26eb2b54f51084592ad13b0cfef228a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Raclette.asset using Guid(26eb2b54f51084592ad13b0cfef228a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '306e87f1ed0aa3ebf710efb2775b332b') in 0.010120 seconds 
-  Import took 0.015862 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000185 seconds.
-  path: Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Water.asset
-  artifactKey: Guid(b91c717d8787940eb945b0ac8e0e6d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Water.asset using Guid(b91c717d8787940eb945b0ac8e0e6d9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be84b282446f157236ade01366ce5554') in 0.010401 seconds 
-  Import took 0.016429 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000236 seconds.
-  path: Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Chemical A.asset
-  artifactKey: Guid(c423c2b36c980458ba295244df149b85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Chemical A.asset using Guid(c423c2b36c980458ba295244df149b85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55ae7c0bd8096486d1a141ebbc2d99fe') in 0.008811 seconds 
-  Import took 0.014425 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000189 seconds.
-  path: Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Dense 2.asset
-  artifactKey: Guid(aafe404b030bc4a1bade38438b9a2532) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Dense 2.asset using Guid(aafe404b030bc4a1bade38438b9a2532) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f985af671a8d9be00c05ba941927af9') in 0.008420 seconds 
-  Import took 0.013924 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000191 seconds.
-  path: Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Viscous.asset
-  artifactKey: Guid(e62e7e2e96d5e4d049603ec2ace23607) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Viscous.asset using Guid(e62e7e2e96d5e4d049603ec2ace23607) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d755ebe9e889ec1f3fdf3630aff9f57') in 0.009950 seconds 
-  Import took 0.015362 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000183 seconds.
-  path: Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Light 2.asset
-  artifactKey: Guid(2d7a91ef0db034fd4a47d624b0f77e0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Light 2.asset using Guid(2d7a91ef0db034fd4a47d624b0f77e0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba85d3013b0acaecb21a8a073106b366') in 0.008376 seconds 
-  Import took 0.013978 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000165 seconds.
-  path: Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Dense.asset
-  artifactKey: Guid(4b7188a0dbfcf436a8f56bd7cbbdc970) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Dense.asset using Guid(4b7188a0dbfcf436a8f56bd7cbbdc970) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd2bfffd9e533de032d427173d1d7b0c') in 0.008016 seconds 
-  Import took 0.013560 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000169 seconds.
-  path: Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Chemical B.asset
-  artifactKey: Guid(13201760673c143d29a7ca4be6aa66ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Chemical B.asset using Guid(13201760673c143d29a7ca4be6aa66ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '123a136a1894965c95d60fd54ed512ef') in 0.008208 seconds 
-  Import took 0.014041 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000204 seconds.
-  path: Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Smoke.asset
-  artifactKey: Guid(754a360fa58484f51bc2009d3ec42074) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Smoke.asset using Guid(754a360fa58484f51bc2009d3ec42074) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d69e8271ce1933ef05d91ad6dc0e06f') in 0.008608 seconds 
-  Import took 0.014162 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000177 seconds.
-  path: Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Light.asset
-  artifactKey: Guid(4f75b22bb1e9f49649f6b4e1b3decd69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Light.asset using Guid(4f75b22bb1e9f49649f6b4e1b3decd69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ea409a8e5c2bc08dd38139337de7b25') in 0.008631 seconds 
-  Import took 0.014869 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000174 seconds.
-  path: Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Faucet.asset
-  artifactKey: Guid(eae3f4de6f75a4bef942d5ef885b4677) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/SampleResources/Blueprints/Faucet.asset using Guid(eae3f4de6f75a4bef942d5ef885b4677) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0adee5328b9bb01a65ea65f07709ed3') in 0.009078 seconds 
-  Import took 0.014858 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 16.257821 seconds.
-  path: Assets/Obi/Resources/GUI
-  artifactKey: Guid(bd46757354fbf4182af57f2913e20fc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Resources/GUI using Guid(bd46757354fbf4182af57f2913e20fc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aef309b70f45b0589760681663c4721c') in 0.004499 seconds 
-  Import took 0.010579 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.078078 seconds.
-  path: Assets/Obi/Resources/GUI/profiler_bck.png
-  artifactKey: Guid(a3476527001d2494a88fa4236e8dbf0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Resources/GUI/profiler_bck.png using Guid(a3476527001d2494a88fa4236e8dbf0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a5e6cd042f2ece67b83ae6e7bceb128') in 0.049115 seconds 
-  Import took 0.054850 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000254 seconds.
-  path: Assets/Obi/Resources/GUI/thread_bck.png
-  artifactKey: Guid(8b6df8323f27749f58cbd0563786435b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Resources/GUI/thread_bck.png using Guid(8b6df8323f27749f58cbd0563786435b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b2e1b8889cdc07c5b4effd90717b74f') in 0.007189 seconds 
-  Import took 0.012426 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000264 seconds.
-  path: Assets/Obi/Resources/GUI/profiler_toolbar.png
-  artifactKey: Guid(98f1105e6aebd46a1878df08ab79b5d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Resources/GUI/profiler_toolbar.png using Guid(98f1105e6aebd46a1878df08ab79b5d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '155b0717915578943a31683a6a677737') in 0.006501 seconds 
-  Import took 0.012326 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000225 seconds.
-  path: Assets/Obi/Resources/GUI/task_bck.png
-  artifactKey: Guid(c237f5e557ded47598c1e8e4c650aeda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Resources/GUI/task_bck.png using Guid(c237f5e557ded47598c1e8e4c650aeda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'baa587d002e3dcbe0d913f4f2ea2bb93') in 0.006466 seconds 
-  Import took 0.012132 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000236 seconds.
-  path: Assets/Obi/Resources/GUI/scroll_peg.png
-  artifactKey: Guid(06f4c4a011cc740c08e92ac6806b7353) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Resources/GUI/scroll_peg.png using Guid(06f4c4a011cc740c08e92ac6806b7353) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71286320efa892f26be40b3351cc591c') in 0.006409 seconds 
-  Import took 0.012263 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000240 seconds.
-  path: Assets/Obi/Resources/GUI/ProfilerSkin.guiskin
-  artifactKey: Guid(b90d3c214c99743b0865fc0e0d1f1a15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Resources/GUI/ProfilerSkin.guiskin using Guid(b90d3c214c99743b0865fc0e0d1f1a15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97528e991aea89529fcbf12588469afe') in 0.011181 seconds 
-  Import took 0.017337 seconds .
+  Time since last request: 21.582134 seconds.
+  path: Assets/Scripts/DoorLock.cs
+  artifactKey: Guid(d6ecc3ac105e0c44ca00e3682ab49436) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/DoorLock.cs using Guid(d6ecc3ac105e0c44ca00e3682ab49436) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07bb5e5eefdb345ed26baf3dd44226b6') in 0.004412 seconds 
+  Import took 0.125241 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.005503 seconds.
+Registered in 0.005793 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.19 ms, found 7 plugins.
+Preloading 1 native plugins for Editor in 0.08 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.974 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 1.14 ms, found 7 plugins.
+Preloading 1 native plugins for Editor in 0.05 ms.
+Unloading 4416 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 194.4 MB.
+System memory in use after: 192.2 MB.
+
+Unloading 86 unused Assets to reduce memory usage. Loaded Objects now: 5011.
+Total: 3.811800 ms (FindLiveObjects: 0.317800 ms CreateObjectMapping: 0.227500 ms MarkObjects: 2.011100 ms  DeleteObjects: 1.254800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005992 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.16 ms, found 7 plugins.
+Preloading 1 native plugins for Editor in 0.06 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.932 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 1.14 ms, found 7 plugins.
+Preloading 1 native plugins for Editor in 0.05 ms.
+Unloading 4416 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 194.6 MB.
+System memory in use after: 192.2 MB.
+
+Unloading 86 unused Assets to reduce memory usage. Loaded Objects now: 5015.
+Total: 3.761700 ms (FindLiveObjects: 0.335500 ms CreateObjectMapping: 0.201800 ms MarkObjects: 2.038700 ms  DeleteObjects: 1.184700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 449.710297 seconds.
+  path: ProjectSettings/TagManager.asset
+  artifactKey: Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing ProjectSettings/TagManager.asset using Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c82db8f595e9e43befc8e4e960aef72') in 0.077038 seconds 
+  Import took 0.082970 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006294 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 1.14 ms, found 7 plugins.
 Preloading 1 native plugins for Editor in 0.06 ms.
-[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
 Mono: successfully reloaded assembly
-- Completed reload, in  0.922 seconds
+- Completed reload, in  0.933 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Refreshing native plugins compatible for Editor in 1.16 ms, found 7 plugins.
 Preloading 1 native plugins for Editor in 0.05 ms.
-Unloading 4415 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 194.0 MB.
-System memory in use after: 191.7 MB.
+Unloading 4416 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 194.6 MB.
+System memory in use after: 192.3 MB.
 
-Unloading 86 unused Assets to reduce memory usage. Loaded Objects now: 5015.
-Total: 3.379900 ms (FindLiveObjects: 0.333300 ms CreateObjectMapping: 0.174400 ms MarkObjects: 1.847900 ms  DeleteObjects: 1.023200 ms)
+Unloading 87 unused Assets to reduce memory usage. Loaded Objects now: 5019.
+Total: 3.663800 ms (FindLiveObjects: 0.331100 ms CreateObjectMapping: 0.195700 ms MarkObjects: 2.019100 ms  DeleteObjects: 1.117100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005578 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.42 ms, found 7 plugins.
+Preloading 1 native plugins for Editor in 0.08 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.148 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 1.36 ms, found 7 plugins.
+Preloading 1 native plugins for Editor in 0.07 ms.
+Unloading 4416 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 194.6 MB.
+System memory in use after: 192.3 MB.
+
+Unloading 86 unused Assets to reduce memory usage. Loaded Objects now: 5023.
+Total: 4.043400 ms (FindLiveObjects: 0.450100 ms CreateObjectMapping: 0.296900 ms MarkObjects: 2.023600 ms  DeleteObjects: 1.271800 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -466,317 +291,42 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 15.310263 seconds.
-  path: Assets/Obi/Samples/Fluid/FaucetAndBucket.unity
-  artifactKey: Guid(bc5ce9a0e433b45abbd22fdbce538d1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/FaucetAndBucket.unity using Guid(bc5ce9a0e433b45abbd22fdbce538d1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c929a0aedb43abe028829b5432ec76f9') in 0.031567 seconds 
-  Import took 0.037638 seconds .
+  Time since last request: 917.484854 seconds.
+  path: Assets/Scripts/DoorLock.cs
+  artifactKey: Guid(d6ecc3ac105e0c44ca00e3682ab49436) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/DoorLock.cs using Guid(d6ecc3ac105e0c44ca00e3682ab49436) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a862c547d0b9503076eaa3dbf1a49a2b') in 0.008585 seconds 
+  Import took 0.014857 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 4.945666 seconds.
-  path: Assets/Obi/Samples/Fluid/FluidGranular.unity
-  artifactKey: Guid(e2be6083e5cae43299e2483d381a50cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/FluidGranular.unity using Guid(e2be6083e5cae43299e2483d381a50cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c1c8ef8eb23d203716c8df15f00ac0e') in 0.004706 seconds 
-  Import took 0.010575 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 65.478956 seconds.
-  path: Assets/Obi/Samples/Fluid/WhiskeyBottle.unity
-  artifactKey: Guid(d5f9ae40eef20438a95f11b9d2c67e86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Samples/Fluid/WhiskeyBottle.unity using Guid(d5f9ae40eef20438a95f11b9d2c67e86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8a165ff3ddfb7e98d335d324e1c9845') in 0.004961 seconds 
-  Import took 0.010695 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 17.121772 seconds.
-  path: Assets/Obi/Resources/ObiMaterials/URP
-  artifactKey: Guid(7377795ea5bbd404ba97de2909380e01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Resources/ObiMaterials/URP using Guid(7377795ea5bbd404ba97de2909380e01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f0e0000456e529d921de4a5dc4a7e23') in 0.004517 seconds 
-  Import took 0.010237 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.554534 seconds.
-  path: Assets/Obi/Resources/ObiMaterials/DistanceFieldRendering.mat
-  artifactKey: Guid(f6bf1245292ed43c78875db43ca1aad3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Resources/ObiMaterials/DistanceFieldRendering.mat using Guid(f6bf1245292ed43c78875db43ca1aad3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f4f4d3c810f56805309aca10edca2e2') in 0.152925 seconds 
-  Import took 0.159029 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000197 seconds.
-  path: Assets/Obi/Resources/ObiMaterials/Particle.mat
-  artifactKey: Guid(fb972beb020dd4ff5ab78835f4393522) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Resources/ObiMaterials/Particle.mat using Guid(fb972beb020dd4ff5ab78835f4393522) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6984a4bcc8cc2d48983a292a5ec8f9fe') in 0.042430 seconds 
-  Import took 0.048217 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000297 seconds.
-  path: Assets/Obi/Resources/ObiMaterials/particle.png
-  artifactKey: Guid(568ceb11f52ec4d36abc82bcf61af795) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Resources/ObiMaterials/particle.png using Guid(568ceb11f52ec4d36abc82bcf61af795) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa30a6739f87f75a9d6b069592c4577e') in 0.011077 seconds 
-  Import took 0.016831 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000245 seconds.
-  path: Assets/Obi/Resources/ObiMaterials/FluidColorOpaque.mat
-  artifactKey: Guid(76f82da5e66a243a69778c81a9ac78ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Resources/ObiMaterials/FluidColorOpaque.mat using Guid(76f82da5e66a243a69778c81a9ac78ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad9b865dab5a611811628e47ca8c1b8f') in 0.009615 seconds 
-  Import took 0.015444 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000235 seconds.
-  path: Assets/Obi/Resources/ObiMaterials/FluidColorBlend.mat
-  artifactKey: Guid(9336319734319414e85234bc91cf5254) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Resources/ObiMaterials/FluidColorBlend.mat using Guid(9336319734319414e85234bc91cf5254) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a657aa45bcfbba25b3c7630d88d2a719') in 0.011983 seconds 
-  Import took 0.018047 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000232 seconds.
-  path: Assets/Obi/Resources/ObiMaterials/InstancedStandard.mat
-  artifactKey: Guid(2b7dfa8ebb76247318ce5b7df4b97484) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Resources/ObiMaterials/InstancedStandard.mat using Guid(2b7dfa8ebb76247318ce5b7df4b97484) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88746b53718aead2c1b3fce487410a45') in 0.025741 seconds 
-  Import took 0.031879 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 10.191886 seconds.
-  path: Assets/Obi/Scripts/Fluid/Rendering/URP
-  artifactKey: Guid(0906b385ee7c849d0baaae9e5a417fb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Scripts/Fluid/Rendering/URP using Guid(0906b385ee7c849d0baaae9e5a417fb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '124ca534f79c9272f9dbf567acc3f93d') in 0.001704 seconds 
-  Import took 0.007936 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.218286 seconds.
-  path: Assets/Obi/Scripts/Fluid/Rendering/URP/ObiFluidRendererFeature.cs
-  artifactKey: Guid(5cf33ee50a97148328dbba3785c7865f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Scripts/Fluid/Rendering/URP/ObiFluidRendererFeature.cs using Guid(5cf33ee50a97148328dbba3785c7865f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '040e32fbf1f2405ecbb6781829e796ec') in 0.009582 seconds 
-  Import took 0.015467 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.018315 seconds.
-  path: Assets/Obi/Scripts/Fluid/Rendering/URP/ObiFluidRendererFeature.cs
-  artifactKey: Guid(5cf33ee50a97148328dbba3785c7865f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Scripts/Fluid/Rendering/URP/ObiFluidRendererFeature.cs using Guid(5cf33ee50a97148328dbba3785c7865f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '040e32fbf1f2405ecbb6781829e796ec') in 0.001645 seconds 
-  Import took 0.007606 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.871548 seconds.
-  path: Assets/Obi/CHANGELOG_rope.txt
-  artifactKey: Guid(8d9d04260bc994f1b9d444b675212dc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/CHANGELOG_rope.txt using Guid(8d9d04260bc994f1b9d444b675212dc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d72aa7927fb224339d4c7d3f8451e07') in 0.007032 seconds 
-  Import took 0.013115 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001274 seconds.
-  path: Assets/Obi/CHANGELOG_rope.txt
-  artifactKey: Guid(8d9d04260bc994f1b9d444b675212dc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/CHANGELOG_rope.txt using Guid(8d9d04260bc994f1b9d444b675212dc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d72aa7927fb224339d4c7d3f8451e07') in 0.001887 seconds 
-  Import took 0.008004 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.989892 seconds.
-  path: Assets/Obi/CHANGELOG_fluid.txt
-  artifactKey: Guid(1af0cea387bfd47429ca368a7939a951) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/CHANGELOG_fluid.txt using Guid(1af0cea387bfd47429ca368a7939a951) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ec97dfb8c779bc25ae20d58043995b7') in 0.004606 seconds 
-  Import took 0.010647 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000892 seconds.
-  path: Assets/Obi/CHANGELOG_fluid.txt
-  artifactKey: Guid(1af0cea387bfd47429ca368a7939a951) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/CHANGELOG_fluid.txt using Guid(1af0cea387bfd47429ca368a7939a951) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ec97dfb8c779bc25ae20d58043995b7') in 0.001809 seconds 
-  Import took 0.007857 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 587.300837 seconds.
-  path: Assets/Obi/Editor
-  artifactKey: Guid(d6a0c47fa0afb4e1fb441061faa32d50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Editor using Guid(d6a0c47fa0afb4e1fb441061faa32d50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60588efac55e7fd01f1404b98e44e79b') in 0.004891 seconds 
-  Import took 0.011475 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.079581 seconds.
-  path: Assets/Obi/Editor/Obi.Editor.asmdef
-  artifactKey: Guid(180639cf42b5c450c8fdad7e31d2ec13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Editor/Obi.Editor.asmdef using Guid(180639cf42b5c450c8fdad7e31d2ec13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dfcaa6dd736ef8811b338f4cc282c25e') in 0.004248 seconds 
-  Import took 0.009928 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.369452 seconds.
-  path: Assets/Obi/Editor/Fluid
-  artifactKey: Guid(bf08542d0c1a9465c820c6c2a55a22b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Editor/Fluid using Guid(bf08542d0c1a9465c820c6c2a55a22b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49bb4f358e47a956c7f73235e757cc0f') in 0.001764 seconds 
-  Import took 0.008066 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 88.126451 seconds.
-  path: Assets/ObiEditorSettings.asset
-  artifactKey: Guid(483cd338a42867049baa64c735dab634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ObiEditorSettings.asset using Guid(483cd338a42867049baa64c735dab634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '801c5e12bff93c2659e23cf3ac84783b') in 0.005310 seconds 
-  Import took 0.011206 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 16.273979 seconds.
-  path: Assets/Obi/Editor/Resources/Icons/ObiSolver Icon.png
-  artifactKey: Guid(4bb17fa3a0a95413a817e60391d26010) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Editor/Resources/Icons/ObiSolver Icon.png using Guid(4bb17fa3a0a95413a817e60391d26010) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90e4ded3d82a1dedf72019f127bb9c53') in 0.008676 seconds 
-  Import took 0.014471 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.750021 seconds.
-  path: Assets/Obi/Editor/Common/Solver
-  artifactKey: Guid(d82f874c48e764fb8b49f1767f76a94a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obi/Editor/Common/Solver using Guid(d82f874c48e764fb8b49f1767f76a94a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80a87c8233cda2b25aa0ac2a5f7f2623') in 0.004780 seconds 
-  Import took 0.010810 seconds .
+  Time since last request: 0.014311 seconds.
+  path: Assets/Scripts/DoorLock.cs
+  artifactKey: Guid(d6ecc3ac105e0c44ca00e3682ab49436) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/DoorLock.cs using Guid(d6ecc3ac105e0c44ca00e3682ab49436) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a862c547d0b9503076eaa3dbf1a49a2b') in 0.173888 seconds 
+  Import took 0.181339 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.005685 seconds.
+Registered in 0.005833 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.16 ms, found 7 plugins.
+Refreshing native plugins compatible for Editor in 1.34 ms, found 7 plugins.
 Preloading 1 native plugins for Editor in 0.08 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.983 seconds
+- Completed reload, in  1.267 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
 Refreshing native plugins compatible for Editor in 1.20 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.05 ms.
-Unloading 4415 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 199.9 MB.
-System memory in use after: 197.6 MB.
-
-Unloading 86 unused Assets to reduce memory usage. Loaded Objects now: 5099.
-Total: 3.911200 ms (FindLiveObjects: 0.334300 ms CreateObjectMapping: 0.310200 ms MarkObjects: 2.089300 ms  DeleteObjects: 1.176200 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005372 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.25 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.12 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.069 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.29 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.08 ms.
-Unloading 4415 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 199.9 MB.
-System memory in use after: 197.6 MB.
-
-Unloading 86 unused Assets to reduce memory usage. Loaded Objects now: 5103.
-Total: 4.422300 ms (FindLiveObjects: 0.502500 ms CreateObjectMapping: 0.255300 ms MarkObjects: 2.368300 ms  DeleteObjects: 1.294900 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 558.453000 seconds.
-  path: Assets/Scenes/MainScene.unity
-  artifactKey: Guid(19ccd214f1d5bf1429171a5f818f0a0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/MainScene.unity using Guid(19ccd214f1d5bf1429171a5f818f0a0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f93963fb0e558e709a26ce94223731d4') in 0.038446 seconds 
-  Import took 0.045750 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005648 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.22 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.09 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.979 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
-Refreshing native plugins compatible for Editor in 1.26 ms, found 7 plugins.
 Preloading 1 native plugins for Editor in 0.06 ms.
 Unloading 4415 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 199.9 MB.
-System memory in use after: 197.6 MB.
+System memory in use before: 194.6 MB.
+System memory in use after: 192.3 MB.
 
-Unloading 86 unused Assets to reduce memory usage. Loaded Objects now: 5107.
-Total: 3.678300 ms (FindLiveObjects: 0.366800 ms CreateObjectMapping: 0.199800 ms MarkObjects: 2.008900 ms  DeleteObjects: 1.102000 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005469 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.23 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.07 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.964 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
-Refreshing native plugins compatible for Editor in 1.21 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.06 ms.
-Unloading 4415 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 200.2 MB.
-System memory in use after: 197.8 MB.
-
-Unloading 86 unused Assets to reduce memory usage. Loaded Objects now: 5111.
-Total: 5.411800 ms (FindLiveObjects: 0.354200 ms CreateObjectMapping: 0.194000 ms MarkObjects: 3.486200 ms  DeleteObjects: 1.376300 ms)
+Unloading 87 unused Assets to reduce memory usage. Loaded Objects now: 5026.
+Total: 4.210800 ms (FindLiveObjects: 0.389500 ms CreateObjectMapping: 0.255700 ms MarkObjects: 2.227500 ms  DeleteObjects: 1.336700 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -791,198 +341,25 @@ AssetImportParameters requested are different than current active one (requested
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.005935 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.21 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.07 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.971 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.19 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.06 ms.
-Unloading 4415 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 200.1 MB.
-System memory in use after: 197.9 MB.
-
-Unloading 86 unused Assets to reduce memory usage. Loaded Objects now: 5115.
-Total: 5.023500 ms (FindLiveObjects: 0.536400 ms CreateObjectMapping: 0.306000 ms MarkObjects: 2.283400 ms  DeleteObjects: 1.896600 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005664 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.16 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.07 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.961 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.21 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.06 ms.
-Unloading 4415 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 200.2 MB.
-System memory in use after: 197.9 MB.
-
-Unloading 86 unused Assets to reduce memory usage. Loaded Objects now: 5119.
-Total: 4.321100 ms (FindLiveObjects: 0.419300 ms CreateObjectMapping: 0.363200 ms MarkObjects: 2.279200 ms  DeleteObjects: 1.258700 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005990 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.23 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.07 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.957 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.23 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.07 ms.
-Unloading 4415 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 200.2 MB.
-System memory in use after: 197.9 MB.
-
-Unloading 86 unused Assets to reduce memory usage. Loaded Objects now: 5123.
-Total: 4.808000 ms (FindLiveObjects: 0.537800 ms CreateObjectMapping: 0.270400 ms MarkObjects: 2.686000 ms  DeleteObjects: 1.312600 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 919.944783 seconds.
-  path: Assets/Materials/111.mat
-  artifactKey: Guid(45ef6adb0cef0654d8c3de6fc2d30898) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/111.mat using Guid(45ef6adb0cef0654d8c3de6fc2d30898) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9e98ea66338b13202208d2aba58d0f3') in 0.150952 seconds 
-  Import took 0.157343 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005863 seconds.
+Registered in 0.006225 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 1.17 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.15 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.958 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.15 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.05 ms.
-Unloading 4415 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 200.1 MB.
-System memory in use after: 197.8 MB.
-
-Unloading 86 unused Assets to reduce memory usage. Loaded Objects now: 5163.
-Total: 3.909400 ms (FindLiveObjects: 0.374300 ms CreateObjectMapping: 0.244300 ms MarkObjects: 2.109000 ms  DeleteObjects: 1.181100 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005613 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.27 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.07 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.957 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
-Refreshing native plugins compatible for Editor in 1.18 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.05 ms.
-Unloading 4415 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 200.2 MB.
-System memory in use after: 197.9 MB.
-
-Unloading 86 unused Assets to reduce memory usage. Loaded Objects now: 5167.
-Total: 4.690700 ms (FindLiveObjects: 0.373700 ms CreateObjectMapping: 0.197700 ms MarkObjects: 2.763300 ms  DeleteObjects: 1.355000 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005631 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.14 ms, found 7 plugins.
 Preloading 1 native plugins for Editor in 0.06 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.951 seconds
+- Completed reload, in  1.145 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
-Refreshing native plugins compatible for Editor in 1.13 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.05 ms.
+Refreshing native plugins compatible for Editor in 1.15 ms, found 7 plugins.
+Preloading 1 native plugins for Editor in 0.12 ms.
 Unloading 4415 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 200.2 MB.
-System memory in use after: 197.9 MB.
+System memory in use before: 194.6 MB.
+System memory in use after: 192.3 MB.
 
-Unloading 86 unused Assets to reduce memory usage. Loaded Objects now: 5171.
-Total: 4.854600 ms (FindLiveObjects: 0.390000 ms CreateObjectMapping: 0.220000 ms MarkObjects: 2.722600 ms  DeleteObjects: 1.521100 ms)
+Unloading 86 unused Assets to reduce memory usage. Loaded Objects now: 5030.
+Total: 3.885500 ms (FindLiveObjects: 0.350000 ms CreateObjectMapping: 0.267400 ms MarkObjects: 2.039500 ms  DeleteObjects: 1.227700 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
