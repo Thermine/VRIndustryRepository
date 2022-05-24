@@ -1189,6 +1189,10 @@
       <Project>{E775B445-B39A-BE69-15BC-4330DB602BD3}</Project>
       <Name>Oculus.Interaction.Samples</Name>
     </ProjectReference>
+    <ProjectReference Include="PaintIn3D.csproj">
+      <Project>{A707957B-BDA2-8DCD-E2D3-09BE53C0CED6}</Project>
+      <Name>PaintIn3D</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
